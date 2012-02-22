@@ -10,4 +10,6 @@
     <context:component-scan base-package="cz.muni.fi.bapr" />
     <context:annotation-config />
 
+    <import resource="persistence-config.xml" />
+
 </beans>
