@@ -7,6 +7,13 @@
     <groupId>net.kurochenko</groupId>
     <artifactId>ecommerceincloud</artifactId>
     <version>1.0</version>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>3.1.0.RELEASE</version>
+        </dependency>
+    </dependencies>
     <packaging>war</packaging>
 
     <properties>
