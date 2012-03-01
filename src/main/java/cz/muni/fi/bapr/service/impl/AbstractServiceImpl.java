@@ -3,6 +3,7 @@ package cz.muni.fi.bapr.service.impl;
 import cz.muni.fi.bapr.dao.DAOTemplate;
 import cz.muni.fi.bapr.entity.IdentifiedEntity;
 import cz.muni.fi.bapr.service.ServiceTemplate;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -11,6 +12,7 @@ import java.util.List;
  *
  * @author Andrej Kuročenko <andrej@kurochenko.net>
  */
+@Transactional
 public abstract class AbstractServiceImpl<T extends IdentifiedEntity, K extends DAOTemplate<T>> implements ServiceTemplate<T> {
 
     /**
