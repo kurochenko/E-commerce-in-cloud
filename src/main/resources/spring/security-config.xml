@@ -18,6 +18,8 @@
         <security:logout
                 logout-url="/logout"
                 logout-success-url="/"/>
+
+        <security:intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')"/>
     </security:http>
 
 
