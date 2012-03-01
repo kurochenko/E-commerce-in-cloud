@@ -8,11 +8,6 @@ package cz.muni.fi.bapr.security;
 public class UserRoles {
 
     /**
-     * This role has non-authenticated user
-     */
-    public static final String ROLE_ANONYMOUS = "ROLE_ANONYMOUS";
-
-    /**
      * This role has authenticated user
      */
     public static final String ROLE_LOGGED = "ROLE_LOGGED";
