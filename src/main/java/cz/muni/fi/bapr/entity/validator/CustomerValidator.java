@@ -34,12 +34,12 @@ public class CustomerValidator implements Validator {
 
         if (customer.getId() == null) {
             if ((customerService.findByEmail(customer.getEmail()) != null)) {
-                errors.rejectValue("email", "customer.validation.mailexists");
+                errors.rejectValue("email", "customer.validation.mail.exists");
             }
         } else {
             Customer customerDB = customerService.findByEmail(customer.getEmail());
             if ((customerDB != null) && !customerDB.getId().equals(customer.getId())) {
-                errors.rejectValue("email", "customer.validation.mailexists");
+                errors.rejectValue("email", "customer.validation.mail.exists");
             }
         }
 
