@@ -15,5 +15,17 @@
         <put-attribute name="body" value="/WEB-INF/jsp/content/index.jsp"/>
     </definition>
 
+    <!-- Registration -->
+    <definition name="register" extends="base.definition">
+        <put-attribute name="title" value="register.title"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/content/register.jsp"/>
+    </definition>
+
+    <!-- Login -->
+    <definition name="login" extends="base.definition">
+        <put-attribute name="title" value="login.title"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/content/login.jsp"/>
+    </definition>
+
 
 </tiles-definitions>
