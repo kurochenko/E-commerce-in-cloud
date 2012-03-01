@@ -22,6 +22,12 @@
 
     <c:url value="/register" var="registerUrl"/>
     <ul>
+        <sec:authorize ifAnyGranted="ROLE_ADMIN">
+            <c:url value="/admin/category/list" var="listCategoryUrl"/>
+            <li>
+                <a href="${listCategoryUrl}"><spring:message code="link.category.list"/></a>
+            </li>
+        </sec:authorize>
         <sec:authorize ifAnyGranted="ROLE_LOGGED">
             <c:url value="/logout" var="logoutUrl"/>
             <li>
