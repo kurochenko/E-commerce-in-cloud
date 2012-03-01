@@ -8,6 +8,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author Andrej Kuročenko <andrej@kurochenko.net>
@@ -47,6 +48,9 @@ public class Customer implements Serializable, IdentifiedEntity {
     @NotEmpty(message = "{validation.empty}")
     @Length(max = 255, message = "{validation.length.max}")
     private String zipCode;
+
+    @ManyToMany
+    private List<UserPrivilege> privileges;
 
 
     @Override
@@ -114,6 +118,14 @@ public class Customer implements Serializable, IdentifiedEntity {
         this.zipCode = zipCode;
     }
 
+    public List<UserPrivilege> getPrivileges() {
+        return privileges;
+    }
+
+    public void setPrivileges(List<UserPrivilege> privileges) {
+        this.privileges = privileges;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -127,6 +139,7 @@ public class Customer implements Serializable, IdentifiedEntity {
         if (id != null ? !id.equals(customer.id) : customer.id != null) return false;
         if (name != null ? !name.equals(customer.name) : customer.name != null) return false;
         if (password != null ? !password.equals(customer.password) : customer.password != null) return false;
+        if (privileges != null ? !privileges.equals(customer.privileges) : customer.privileges != null) return false;
         if (street != null ? !street.equals(customer.street) : customer.street != null) return false;
         if (zipCode != null ? !zipCode.equals(customer.zipCode) : customer.zipCode != null) return false;
 
@@ -143,6 +156,7 @@ public class Customer implements Serializable, IdentifiedEntity {
         result = 31 * result + (city != null ? city.hashCode() : 0);
         result = 31 * result + (street != null ? street.hashCode() : 0);
         result = 31 * result + (zipCode != null ? zipCode.hashCode() : 0);
+        result = 31 * result + (privileges != null ? privileges.hashCode() : 0);
         return result;
     }
 }
