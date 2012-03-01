@@ -22,5 +22,6 @@
     <import resource="persistence-config.xml"/>
     <import resource="tiles-config.xml"/>
     <import resource="mvc-config.xml"/>
+    <import resource="security-config.xml"/>
 
 </beans>
