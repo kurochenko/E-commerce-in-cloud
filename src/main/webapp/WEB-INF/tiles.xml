@@ -27,5 +27,20 @@
         <put-attribute name="body" value="/WEB-INF/jsp/content/login.jsp"/>
     </definition>
 
+    <!-- Category -->
+    <definition name="category.list" extends="base.definition">
+        <put-attribute name="title" value="category.list.title"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/content/admin/category/list.jsp"/>
+    </definition>
+
+    <definition name="category.form" extends="base.definition">
+        <put-attribute name="title" value="category.form.title"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/content/admin/category/form.jsp"/>
+    </definition>
+
+    <definition name="category.delete" extends="base.definition">
+        <put-attribute name="title" value="category.delete.title"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/content/admin/category/delete.jsp"/>
+    </definition>
 
 </tiles-definitions>
