@@ -4,8 +4,9 @@
         "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
 
 <tiles-definitions>
-    <definition name="base.definition" template="/WEB-INF/jsp/layout.jsp">
+    <definition name="base.definition" template="/WEB-INF/jsp/layout.jsp" preparer="menuPreparer">
         <put-attribute name="title" value=""/>
+        <put-attribute name="menu" value="/WEB-INF/jsp/menu.jsp"/>
         <put-attribute name="body" value=""/>
     </definition>
 
@@ -68,6 +69,16 @@
     <definition name="product.delete" extends="base.definition">
         <put-attribute name="title" value="product.delete.title"/>
         <put-attribute name="body" value="/WEB-INF/jsp/content/admin/product/delete.jsp"/>
+    </definition>
+
+    <definition name="product.detail" extends="base.definition">
+        <put-attribute name="title" value="product.detail.title"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/content/user/product/detail.jsp"/>
+    </definition>
+
+    <definition name="product.list" extends="base.definition">
+        <put-attribute name="title" value="product.list.title"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/content/user/product/list.jsp"/>
     </definition>
 
 
