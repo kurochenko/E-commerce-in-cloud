@@ -43,4 +43,32 @@
         <put-attribute name="body" value="/WEB-INF/jsp/content/admin/category/delete.jsp"/>
     </definition>
 
+    <!-- Vat -->
+    <definition name="vat.list" extends="base.definition">
+        <put-attribute name="title" value="vat.list.title"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/content/admin/vat/list.jsp"/>
+    </definition>
+
+    <definition name="vat.form" extends="base.definition">
+        <put-attribute name="title" value="vat.form.title"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/content/admin/vat/form.jsp"/>
+    </definition>
+
+    <definition name="vat.delete" extends="base.definition">
+        <put-attribute name="title" value="vat.delete.title"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/content/admin/vat/delete.jsp"/>
+    </definition>
+
+    <!-- Product -->
+    <definition name="product.form" extends="base.definition">
+        <put-attribute name="title" value="product.form.title"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/content/admin/product/form.jsp"/>
+    </definition>
+
+    <definition name="product.delete" extends="base.definition">
+        <put-attribute name="title" value="product.delete.title"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/content/admin/product/delete.jsp"/>
+    </definition>
+
+
 </tiles-definitions>
