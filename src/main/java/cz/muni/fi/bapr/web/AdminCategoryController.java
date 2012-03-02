@@ -18,7 +18,7 @@ import javax.validation.Valid;
  */
 @Controller
 @RequestMapping("/admin/category")
-public class CategoryController {
+public class AdminCategoryController {
 
     public static final String MODEL_CATEGORY_LIST = "categories";
     public static final String MODEL_CATEGORY = "category";
