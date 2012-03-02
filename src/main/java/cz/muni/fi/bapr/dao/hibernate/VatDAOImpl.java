@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.math.BigDecimal;
 
 /**
  * @author Andrej Kuročenko <andrej@kurochenko.net>
@@ -27,7 +28,7 @@ public class VatDAOImpl extends AbstractParamSearchDAOImpl<Vat> implements VatDA
     }
 
     @Override
-    public Vat findByVat(Integer vat) {
+    public Vat findByVat(BigDecimal vat) {
         return super.findByParam("vat", vat);
     }
 }

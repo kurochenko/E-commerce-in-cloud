@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
+
 /**
  * @author Andrej Kuročenko <andrej@kurochenko.net>
  */
@@ -57,7 +59,7 @@ public class VatServiceImpl extends AbstractServiceImpl<Vat, VatDAO> implements 
     }
 
     @Override
-    public Vat findByVat(Integer vat) {
+    public Vat findByVat(BigDecimal vat) {
         if (vat == null) {
             throw new IllegalArgumentException("Vat value is null");
         }
