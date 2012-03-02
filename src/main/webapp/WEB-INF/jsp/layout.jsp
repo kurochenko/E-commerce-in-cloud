@@ -53,6 +53,8 @@
         </sec:authorize>
         <li><a href="${registerUrl}"><spring:message code="link.register"/></a></li>
     </ul>
+    <hr/>
+    <tiles:insertAttribute name="menu"/>
 
     <tiles:insertAttribute name="body"/>
 </div>
