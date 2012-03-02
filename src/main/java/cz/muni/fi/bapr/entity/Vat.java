@@ -10,6 +10,7 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 /**
  * @author Andrej Kuročenko <andrej@kurochenko.net>
@@ -25,7 +26,7 @@ public class Vat implements Serializable, IdentifiedEntity {
     @Min(value = 0, message = "{validation.min}")
     @Max(value = 100, message = "{validation.max}")
     @NumberFormat
-    private Integer vat;
+    private BigDecimal vat;
 
 
     @Override
@@ -37,11 +38,11 @@ public class Vat implements Serializable, IdentifiedEntity {
         this.id = id;
     }
 
-    public Integer getVat() {
+    public BigDecimal getVat() {
         return vat;
     }
 
-    public void setVat(Integer vat) {
+    public void setVat(BigDecimal vat) {
         this.vat = vat;
     }
 
