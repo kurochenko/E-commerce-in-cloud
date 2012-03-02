@@ -24,8 +24,16 @@
     <ul>
         <sec:authorize ifAnyGranted="ROLE_ADMIN">
             <c:url value="/admin/category/list" var="listCategoryUrl"/>
+            <c:url value="/admin/vat/list" var="listVatUrl"/>
+            <c:url value="/admin/product/create" var="createProductUrl"/>
             <li>
                 <a href="${listCategoryUrl}"><spring:message code="link.category.list"/></a>
+            </li>
+            <li>
+                <a href="${listVatUrl}"><spring:message code="link.vat.list"/></a>
+            </li>
+            <li>
+                <a href="${createProductUrl}"><spring:message code="link.product.create"/></a>
             </li>
         </sec:authorize>
         <sec:authorize ifAnyGranted="ROLE_LOGGED">
