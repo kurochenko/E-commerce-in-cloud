@@ -18,6 +18,7 @@
 <form:form method="post" action="${actionUrl}" modelAttribute="product">
 
     <form:hidden path="id"/>
+    <form:hidden path="created"/>
 
     <form:label path="name">
         <spring:message code="product.name"/>
