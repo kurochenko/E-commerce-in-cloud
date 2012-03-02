@@ -2,6 +2,7 @@ package cz.muni.fi.bapr.entity;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.NumberFormat;
 
 import javax.persistence.*;
@@ -36,6 +37,7 @@ public class Product implements Serializable, IdentifiedEntity {
 
     @NotNull(message = "{validation.empty}")
     @Temporal(TemporalType.TIMESTAMP)
+    @DateTimeFormat
     private Date created;
 
     @NotNull
