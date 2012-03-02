@@ -25,7 +25,7 @@ public abstract class AbstractParamSearchDAOImpl<T> extends AbstractDAOImpl<T> {
      * @param searchValue   value to search in {@code parameterName} entity parameter
      * @return {@code T} entity if search matched, {@code null} otherwise
      */
-    protected T findByParam(String parameterName, String searchValue) {
+    protected T findByParam(String parameterName, Object searchValue) {
         if (parameterName == null) {
             throw new IllegalArgumentException("Parameter name is null");
         }
