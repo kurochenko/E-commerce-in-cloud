@@ -1,7 +1,10 @@
 package cz.muni.fi.bapr.web;
 
 import cz.muni.fi.bapr.entity.Customer;
+import cz.muni.fi.bapr.entity.UserPrivilege;
+import cz.muni.fi.bapr.security.UserRoles;
 import cz.muni.fi.bapr.service.CustomerService;
+import cz.muni.fi.bapr.service.UserPrivilegeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.authentication.encoding.PasswordEncoder;
@@ -13,7 +16,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 /**
  * @author Andrej Kuročenko <andrej@kurochenko.net>
@@ -28,6 +33,9 @@ public class UserController {
 
     @Autowired
     private CustomerService customerService;
+
+    @Autowired
+    private UserPrivilegeService userPrivilegeService;
 
     @Autowired
     @Qualifier("customerValidator")
@@ -51,6 +59,12 @@ public class UserController {
 
         if (result.hasErrors()) {
             return "register";
+        }
+
+        if (customerService.count() == 0) {
+            List<UserPrivilege> privileges = new ArrayList<UserPrivilege>();
+            privileges.add(userPrivilegeService.findByName(UserRoles.ROLE_ADMIN));
+            customer.setPrivileges(privileges);
         }
 
         customerService.create(customer);
