@@ -1,11 +1,14 @@
 package cz.muni.fi.bapr.entity;
 
+import org.springframework.format.annotation.NumberFormat;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 /**
@@ -19,7 +22,9 @@ public class Vat implements Serializable, IdentifiedEntity {
     private Long id;
 
     @NotNull(message = "{validation.empty}")
-    @Size(min = 0, max = 100, message = "{validation.size}")
+    @Min(value = 0, message = "{validation.min}")
+    @Max(value = 100, message = "{validation.max}")
+    @NumberFormat
     private Integer vat;
 
 
