@@ -44,6 +44,10 @@ public class Product implements Serializable, IdentifiedEntity {
 
     @NotNull(message = "{validation.empty}")
     @ManyToOne
+    private Vat vat;
+
+    @NotNull(message = "{validation.empty}")
+    @ManyToOne
     private Category category;
 
 
@@ -96,6 +100,14 @@ public class Product implements Serializable, IdentifiedEntity {
         this.amount = amount;
     }
 
+    public Vat getVat() {
+        return vat;
+    }
+
+    public void setVat(Vat vat) {
+        this.vat = vat;
+    }
+
     public Category getCategory() {
         return category;
     }
@@ -118,6 +130,7 @@ public class Product implements Serializable, IdentifiedEntity {
         if (id != null ? !id.equals(product.id) : product.id != null) return false;
         if (name != null ? !name.equals(product.name) : product.name != null) return false;
         if (price != null ? !price.equals(product.price) : product.price != null) return false;
+        if (vat != null ? !vat.equals(product.vat) : product.vat != null) return false;
 
         return true;
     }
@@ -130,6 +143,7 @@ public class Product implements Serializable, IdentifiedEntity {
         result = 31 * result + (price != null ? price.hashCode() : 0);
         result = 31 * result + (created != null ? created.hashCode() : 0);
         result = 31 * result + (amount != null ? amount.hashCode() : 0);
+        result = 31 * result + (vat != null ? vat.hashCode() : 0);
         result = 31 * result + (category != null ? category.hashCode() : 0);
         return result;
     }
