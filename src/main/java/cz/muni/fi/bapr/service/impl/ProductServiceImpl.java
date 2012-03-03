@@ -1,5 +1,6 @@
 package cz.muni.fi.bapr.service.impl;
 
+import cz.muni.fi.bapr.dao.OrderProductDAO;
 import cz.muni.fi.bapr.dao.ProductDAO;
 import cz.muni.fi.bapr.entity.Category;
 import cz.muni.fi.bapr.entity.Product;
@@ -22,6 +23,9 @@ public class ProductServiceImpl extends AbstractServiceImpl<Product, ProductDAO>
     @Autowired
     private ProductDAO productDAO;
 
+    @Autowired
+    private OrderProductDAO orderProductDAO;
+
 
     @Override
     public ProductDAO getDao() {
@@ -35,5 +39,17 @@ public class ProductServiceImpl extends AbstractServiceImpl<Product, ProductDAO>
         }
 
         return productDAO.findByCategory(category);
+    }
+
+    @Override
+    public void remove(Product entity) {
+        if (entity == null) {
+            throw new IllegalArgumentException("Product is null");
+        }
+        if (!orderProductDAO.findByProduct(entity).isEmpty()) {
+            throw new IllegalArgumentException("Cannot remove product, because is ordered by customer");
+        }
+
+        productDAO.remove(entity);
     }
 }
