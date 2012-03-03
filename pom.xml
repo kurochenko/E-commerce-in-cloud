@@ -209,7 +209,30 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.cloudfoundry</groupId>
+                <artifactId>cf-maven-plugin</artifactId>
+                <version>1.0.0.M1</version>
+                <configuration>
+                    <server>kurochenko-bp-instance</server>
+                    <appname>kurochenko-bp</appname>
+                    <target>http://api.cloudfoundry.com</target>
+                    <url>kurochenko-bp.cloudfoundry.com</url>
+                    <memory>512</memory>
+                </configuration>
+
+            </plugin>
+
         </plugins>
     </build>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>repository.springframework.maven.milestone</id>
+            <name>Spring Framework Maven Milestone Repository</name>
+            <url>http://maven.springframework.org/milestone</url>
+        </pluginRepository>
+    </pluginRepositories>
+
 
 </project>
