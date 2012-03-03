@@ -12,7 +12,7 @@ import java.math.BigDecimal;
  * @author Andrej Kuročenko <andrej@kurochenko.net>
  */
 @Repository
-public class VatDAOImpl extends AbstractParamSearchDAOImpl<Vat> implements VatDAO {
+public class VatDAOImpl extends AbstractDAOImpl<Vat> implements VatDAO {
 
     @PersistenceContext
     private EntityManager entityManager;

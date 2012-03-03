@@ -11,7 +11,7 @@ import javax.persistence.PersistenceContext;
  * @author Andrej Kuročenko <andrej@kurochenko.net>
  */
 @Repository
-public class DeliveryTypeDAOImpl extends AbstractParamSearchDAOImpl<DeliveryType> implements DeliveryTypeDAO {
+public class DeliveryTypeDAOImpl extends AbstractDAOImpl<DeliveryType> implements DeliveryTypeDAO {
 
     @PersistenceContext
     private EntityManager entityManager;

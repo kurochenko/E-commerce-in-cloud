@@ -3,8 +3,10 @@ package cz.muni.fi.bapr.dao.hibernate;
 import cz.muni.fi.bapr.dao.DAOTemplate;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaQuery;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -85,5 +87,57 @@ public abstract class AbstractDAOImpl<T> implements DAOTemplate<T> {
     public long count() {
         Query query = getEntityManager().createQuery("SELECT COUNT(c) FROM " + entityClass.getName() + " c");
         return (Long) query.getSingleResult();
+    }
+
+    /**
+     * Searches for entities specified by generic type T which have parameter {@code parameterName} and value {@code searchValue}
+     *
+     * @param parameterName parameter name which may contain {@code searchValue}
+     * @param searchValue   value to search in {@code parameterName} entity parameter
+     * @return {@code T} entity if search matched, {@code null} otherwise
+     */
+    protected T findByParam(String parameterName, Object searchValue) {
+        if (parameterName == null) {
+            throw new IllegalArgumentException("Parameter name is null");
+        }
+        if (searchValue == null) {
+            throw new IllegalArgumentException("Search value is null");
+        }
+
+        T result = null;
+
+        try {
+            Query query = getEntityManager().createQuery("from " + getEntityClass().getName() + " where " + parameterName + " = :param ");
+            query.setParameter("param", searchValue);
+            result = (T) query.getSingleResult();
+        } catch (NoResultException e) {
+        }
+        return result;
+    }
+
+    /**
+     * Searches for entities specified by generic type T which have parameter {@code parameterName} and value {@code searchValue}
+     *
+     * @param parameterName parameter name which may contain {@code searchValue}
+     * @param searchValue   value to search in {@code parameterName} entity parameter
+     * @return {@code List&lt;T&gt;} entity if search matched, empty list otherwise
+     */
+    protected List<T> findListByParam(String parameterName, Object searchValue) {
+        if (parameterName == null) {
+            throw new IllegalArgumentException("Parameter name is null");
+        }
+        if (searchValue == null) {
+            throw new IllegalArgumentException("Search value is null");
+        }
+
+        List<T> result = new ArrayList<T>();
+
+        try {
+            Query query = getEntityManager().createQuery("from " + getEntityClass().getName() + " where " + parameterName + " = :param ");
+            query.setParameter("param", searchValue);
+            result = query.getResultList();
+        } catch (NoResultException e) {
+        }
+        return result;
     }
 }

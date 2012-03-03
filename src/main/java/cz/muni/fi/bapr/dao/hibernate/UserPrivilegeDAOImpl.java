@@ -11,7 +11,7 @@ import javax.persistence.PersistenceContext;
  * @author Andrej Kuročenko <andrej@kurochenko.net>
  */
 @Repository
-public class UserPrivilegeDAOImpl extends AbstractParamSearchDAOImpl<UserPrivilege> implements UserPrivilegeDAO {
+public class UserPrivilegeDAOImpl extends AbstractDAOImpl<UserPrivilege> implements UserPrivilegeDAO {
 
     @PersistenceContext
     private EntityManager entityManager;

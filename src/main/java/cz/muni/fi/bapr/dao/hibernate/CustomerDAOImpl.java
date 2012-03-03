@@ -11,7 +11,7 @@ import javax.persistence.PersistenceContext;
  * @author Andrej Kuročenko <andrej@kurochenko.net>
  */
 @Repository
-public class CustomerDAOImpl extends AbstractParamSearchDAOImpl<Customer> implements CustomerDAO {
+public class CustomerDAOImpl extends AbstractDAOImpl<Customer> implements CustomerDAO {
 
     @PersistenceContext
     private EntityManager entityManager;
