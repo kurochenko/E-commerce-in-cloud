@@ -21,7 +21,7 @@ import javax.validation.Valid;
 public class AdminVatController {
 
     public static final String MODEL_VAT_LIST = "vats";
-    public static final String MODEL_VAT = "vat";
+    public static final String MODEL_VAT = "vatObject";
 
     @Autowired
     private VatService vatService;
@@ -50,7 +50,6 @@ public class AdminVatController {
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public String processCreate(@ModelAttribute(MODEL_VAT) @Valid Vat vat, BindingResult result) {
-
         if (result.hasErrors()) {
             return "vat.form";
         }
