@@ -1,5 +1,6 @@
 package cz.muni.fi.bapr.service.impl;
 
+import cz.muni.fi.bapr.dao.ProductDAO;
 import cz.muni.fi.bapr.dao.VatDAO;
 import cz.muni.fi.bapr.entity.Vat;
 import cz.muni.fi.bapr.service.VatService;
@@ -18,6 +19,9 @@ public class VatServiceImpl extends AbstractServiceImpl<Vat, VatDAO> implements 
 
     @Autowired
     private VatDAO vatDAO;
+
+    @Autowired
+    private ProductDAO productDAO;
 
 
     @Override
@@ -65,5 +69,17 @@ public class VatServiceImpl extends AbstractServiceImpl<Vat, VatDAO> implements 
         }
 
         return vatDAO.findByVat(vat);
+    }
+
+    @Override
+    public void remove(Vat entity) {
+        if (entity == null) {
+            throw new IllegalArgumentException("Vat is null");
+        }
+        if (!productDAO.findByVat(entity).isEmpty()) {
+            throw new IllegalArgumentException("Products with vat '" + entity.getVat() + "' exists. Vat can't be removed");
+        }
+
+        vatDAO.remove(entity);
     }
 }
