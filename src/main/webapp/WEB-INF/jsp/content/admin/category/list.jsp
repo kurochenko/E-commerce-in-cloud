@@ -5,7 +5,8 @@
 
 <c:choose>
     <c:when test="${empty categories}">
-        <spring:message code="category.msg.empty"/>
+        <spring:message code="category.msg.empty"/>.&nbsp;<a href="<c:url
+            value="/admin/category/create"/>"><spring:message code="link.category.create"/></a>
     </c:when>
     <c:otherwise>
         <a href="<c:url value="/admin/category/create" />"><spring:message code="link.category.create"/></a>
