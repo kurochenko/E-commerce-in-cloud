@@ -5,7 +5,7 @@
 <%@page trimDirectiveWhitespaces="true" %>
 
 <c:choose>
-    <c:when test="${empty vat.id}">
+    <c:when test="${empty vatObject.id}">
         <c:set value="btn.create" var="btn"/>
         <c:url value="/admin/vat/create" var="actionUrl"/>
     </c:when>
@@ -15,7 +15,7 @@
     </c:otherwise>
 </c:choose>
 
-<form:form method="post" action="${actionUrl}" modelAttribute="vat">
+<form:form method="post" action="${actionUrl}" modelAttribute="vatObject">
     <form:hidden path="id"/>
 
     <form:label path="vat">

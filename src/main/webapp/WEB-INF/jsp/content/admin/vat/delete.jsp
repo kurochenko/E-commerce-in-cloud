@@ -4,9 +4,9 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@page trimDirectiveWhitespaces="true" %>
 
-<p><spring:message code="vat.delete.question" arguments="${vat.vat}"/></p><br/>
+<p><spring:message code="vat.delete.question" arguments="${vatObject.vat}"/></p><br/>
 <c:url value="/admin/vat/delete" var="formActionUrl"/>
-<form:form method="post" action="${formActionUrl}" modelAttribute="vat">
+<form:form method="post" action="${formActionUrl}" modelAttribute="vatObject">
     <form:hidden path="id"/>
     <a href="<c:url value="/admin/vat/list" />">
         <spring:message code="btn.no"/>
