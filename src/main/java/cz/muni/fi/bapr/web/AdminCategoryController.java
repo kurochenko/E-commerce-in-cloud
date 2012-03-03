@@ -2,6 +2,7 @@ package cz.muni.fi.bapr.web;
 
 import cz.muni.fi.bapr.entity.Category;
 import cz.muni.fi.bapr.service.CategoryService;
+import cz.muni.fi.bapr.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -22,9 +23,13 @@ public class AdminCategoryController {
 
     public static final String MODEL_CATEGORY_LIST = "categories";
     public static final String MODEL_CATEGORY = "category";
+    public static final String ERROR_MSG_ATTR = "errorMsg";
 
     @Autowired
     private CategoryService categoryService;
+
+    @Autowired
+    private ProductService productService;
 
     @Autowired
     @Qualifier("categoryValidator")
@@ -78,7 +83,14 @@ public class AdminCategoryController {
 
     @RequestMapping("/delete/{id}")
     public String renderDelete(@PathVariable("id") Long id, Model model) {
-        model.addAttribute(MODEL_CATEGORY, categoryService.find(id));
+
+        Category category = categoryService.find(id);
+
+        if (!productService.findByCategory(category).isEmpty()) {
+            model.addAttribute(ERROR_MSG_ATTR, "category.has.product");
+        }
+
+        model.addAttribute(MODEL_CATEGORY, category);
         return "category.delete";
     }
 

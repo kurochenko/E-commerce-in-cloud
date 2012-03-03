@@ -4,12 +4,20 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@page trimDirectiveWhitespaces="true" %>
 
-<p><spring:message code="category.delete.question" arguments="${category.name}"/></p><br/>
-<c:url value="/admin/category/delete" var="formActionUrl"/>
-<form:form method="post" action="${formActionUrl}" modelAttribute="category">
-    <form:hidden path="id"/>
-    <a href="<c:url value="/admin/category/list" />">
-        <spring:message code="btn.no"/>
-    </a>
-    <input type="submit" value="<spring:message code="btn.yes"/>"/>
-</form:form>
+<c:choose>
+    <c:when test="${!empty errorMsg}">
+        <spring:message code="${errorMsg}" arguments="${category.name}"/>
+    </c:when>
+    <c:otherwise>
+        <p><spring:message code="category.delete.question" arguments="${category.name}"/></p><br/>
+        <c:url value="/admin/category/delete" var="formActionUrl"/>
+        <form:form method="post" action="${formActionUrl}" modelAttribute="category">
+            <form:hidden path="id"/>
+            <a href="<c:url value="/admin/category/list" />">
+                <spring:message code="btn.no"/>
+            </a>
+            <input type="submit" value="<spring:message code="btn.yes"/>"/>
+        </form:form>
+    </c:otherwise>
+</c:choose>
+
