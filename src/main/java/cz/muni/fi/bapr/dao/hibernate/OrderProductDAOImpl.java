@@ -2,10 +2,12 @@ package cz.muni.fi.bapr.dao.hibernate;
 
 import cz.muni.fi.bapr.dao.OrderProductDAO;
 import cz.muni.fi.bapr.entity.OrderProduct;
+import cz.muni.fi.bapr.entity.Product;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.List;
 
 /**
  * @author Andrej Kuročenko <andrej@kurochenko.net>
@@ -24,5 +26,10 @@ public class OrderProductDAOImpl extends AbstractDAOImpl<OrderProduct> implement
     @Override
     protected EntityManager getEntityManager() {
         return entityManager;
+    }
+
+    @Override
+    public List<OrderProduct> findByProduct(Product product) {
+        return super.findListByParam("product", product);
     }
 }
