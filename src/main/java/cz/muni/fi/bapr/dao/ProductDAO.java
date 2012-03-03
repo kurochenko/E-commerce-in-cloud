@@ -2,6 +2,7 @@ package cz.muni.fi.bapr.dao;
 
 import cz.muni.fi.bapr.entity.Category;
 import cz.muni.fi.bapr.entity.Product;
+import cz.muni.fi.bapr.entity.Vat;
 
 import java.util.List;
 
@@ -13,5 +14,7 @@ import java.util.List;
 public interface ProductDAO extends DAOTemplate<Product> {
 
     List<Product> findByCategory(Category category);
+
+    List<Product> findByVat(Vat vat);
 
 }
