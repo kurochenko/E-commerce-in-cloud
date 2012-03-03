@@ -52,5 +52,8 @@
     <form:input path="zipCode"/>
     <form:errors path="zipCode"/><br/>
 
-    <input type="submit" value="<spring:message code="form.register"/>"/>
+    <div class="buttons">
+        <button type="submit"><spring:message code="form.register"/></button>
+            <%--<input type="submit" value=""/>--%>
+    </div>
 </form:form>

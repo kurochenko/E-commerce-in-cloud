@@ -21,9 +21,35 @@
 
 <body>
 <div id="container">
-    <h1>E-commerce - <spring:message code="${tilesTitle}"/></h1>
+    <div id="header">
+        <ul class="logreg">
+            <sec:authorize ifNotGranted="ROLE_LOGGED">
+                <c:url value="/login" var="loginUrl"/>
+                <c:url value="/register" var="registerUrl"/>
+                <li>
+                    <a href="${registerUrl}"><spring:message code="link.register"/></a> / <a
+                        href="${loginUrl}"><spring:message code="link.login"/></a>
+                </li>
+            </sec:authorize>
+            <sec:authorize ifAnyGranted="ROLE_LOGGED">
+                <c:url value="/logout" var="logoutUrl"/>
+                <li>
+                    <a href="${logoutUrl}">
+                        <sec:authentication property="principal.username"/>
+                        (<spring:message code="link.logout"/>)
+                    </a>
+                </li>
+            </sec:authorize>
+        </ul>
+        <h1>E-commerce - <spring:message code="${tilesTitle}"/></h1>
 
-    <c:url value="/register" var="registerUrl"/>
+
+        <div id="nav">
+            <tiles:insertAttribute name="menu"/>
+        </div>
+    </div>
+
+
     <ul>
         <sec:authorize ifAnyGranted="ROLE_ADMIN">
             <c:url value="/admin/category/list" var="listCategoryUrl"/>
@@ -39,25 +65,7 @@
                 <a href="${createProductUrl}"><spring:message code="link.product.create"/></a>
             </li>
         </sec:authorize>
-        <sec:authorize ifAnyGranted="ROLE_LOGGED">
-            <c:url value="/logout" var="logoutUrl"/>
-            <li>
-                <a href="${logoutUrl}">
-                    <sec:authentication property="principal.username"/>
-                    (<spring:message code="link.logout"/>)
-                </a>
-            </li>
-        </sec:authorize>
-        <sec:authorize ifNotGranted="ROLE_LOGGED">
-            <c:url value="/login" var="loginUrl"/>
-            <li>
-                <a href="${loginUrl}"><spring:message code="link.login"/></a>
-            </li>
-        </sec:authorize>
-        <li><a href="${registerUrl}"><spring:message code="link.register"/></a></li>
     </ul>
-    <hr/>
-    <tiles:insertAttribute name="menu"/>
 
     <tiles:insertAttribute name="body"/>
 </div>
