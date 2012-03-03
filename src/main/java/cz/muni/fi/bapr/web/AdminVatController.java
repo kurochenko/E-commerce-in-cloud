@@ -1,6 +1,7 @@
 package cz.muni.fi.bapr.web;
 
 import cz.muni.fi.bapr.entity.Vat;
+import cz.muni.fi.bapr.service.ProductService;
 import cz.muni.fi.bapr.service.VatService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -22,9 +23,13 @@ public class AdminVatController {
 
     public static final String MODEL_VAT_LIST = "vats";
     public static final String MODEL_VAT = "vatObject";
+    public static final String ERROR_MSG_ATTR = "errorMsg";
 
     @Autowired
     private VatService vatService;
+
+    @Autowired
+    private ProductService productService;
 
     @Autowired
     @Qualifier("vatValidator")
@@ -77,7 +82,14 @@ public class AdminVatController {
 
     @RequestMapping("/delete/{id}")
     public String renderDelete(@PathVariable("id") Long id, Model model) {
-        model.addAttribute(MODEL_VAT, vatService.find(id));
+
+        Vat vat = vatService.find(id);
+
+        if (!productService.findByVat(vat).isEmpty()) {
+            model.addAttribute(ERROR_MSG_ATTR, "vat.has.product");
+        }
+
+        model.addAttribute(MODEL_VAT, vat);
         return "vat.delete";
     }
 
