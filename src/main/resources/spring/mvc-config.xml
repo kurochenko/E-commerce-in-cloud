@@ -11,6 +11,8 @@
             validator="springValidator"
             conversion-service="conversionService"/>
 
+    <mvc:resources mapping="/css/**" location="/css/"/>
+
     <bean id="springValidator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
         <property name="validationMessageSource" ref="messageSource"/>
     </bean>
