@@ -12,10 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.Validator;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.Calendar;
@@ -92,5 +89,20 @@ public class AdminProductController {
 
         productService.edit(product);
         return "redirect:/product/detail/" + product.getId();
+    }
+
+    @RequestMapping("/delete/{id}")
+    public String renderDelete(@PathVariable("id") Long id, Model model) {
+
+        model.addAttribute(MODEL_PRODUCT, productService.find(id));
+        return "product.delete";
+    }
+
+    @RequestMapping(value = "/delete", method = RequestMethod.POST)
+    public String processDelete(@RequestParam("id") Long id) {
+
+        Product product = productService.find(id);
+        productService.remove(product);
+        return "redirect:/category/" + product.getCategory().getId() + "/list";
     }
 }
