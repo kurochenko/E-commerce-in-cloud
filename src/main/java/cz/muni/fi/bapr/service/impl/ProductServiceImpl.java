@@ -4,6 +4,7 @@ import cz.muni.fi.bapr.dao.OrderProductDAO;
 import cz.muni.fi.bapr.dao.ProductDAO;
 import cz.muni.fi.bapr.entity.Category;
 import cz.muni.fi.bapr.entity.Product;
+import cz.muni.fi.bapr.entity.Vat;
 import cz.muni.fi.bapr.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,6 +40,15 @@ public class ProductServiceImpl extends AbstractServiceImpl<Product, ProductDAO>
         }
 
         return productDAO.findByCategory(category);
+    }
+
+    @Override
+    public List<Product> findByVat(Vat vat) {
+        if (vat == null) {
+            throw new IllegalArgumentException("Vat is null");
+        }
+
+        return productDAO.findByVat(vat);
     }
 
     @Override
