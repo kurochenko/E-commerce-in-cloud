@@ -9,15 +9,18 @@
     <tiles:insertAttribute name="title" ignore="true"/>
 </c:set>
 
+<c:url value="/css/styles.css" var="cssUrl"/>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="${cssUrl}" type="text/css"/>
     <title>E-commerce | <spring:message code="${tilesTitle}"/></title>
 </head>
 
 <body>
-<div class="container">
+<div id="container">
     <h1>E-commerce - <spring:message code="${tilesTitle}"/></h1>
 
     <c:url value="/register" var="registerUrl"/>
