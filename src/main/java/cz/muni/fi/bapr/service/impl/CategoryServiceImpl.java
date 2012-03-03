@@ -1,6 +1,7 @@
 package cz.muni.fi.bapr.service.impl;
 
 import cz.muni.fi.bapr.dao.CategoryDAO;
+import cz.muni.fi.bapr.dao.ProductDAO;
 import cz.muni.fi.bapr.entity.Category;
 import cz.muni.fi.bapr.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,9 @@ public class CategoryServiceImpl extends AbstractServiceImpl<Category, CategoryD
 
     @Autowired
     private CategoryDAO categoryDAO;
+
+    @Autowired
+    private ProductDAO productDAO;
 
 
     @Override
@@ -65,5 +69,17 @@ public class CategoryServiceImpl extends AbstractServiceImpl<Category, CategoryD
         }
 
         categoryDAO.edit(entity);
+    }
+
+    @Override
+    public void remove(Category entity) {
+        if (entity == null) {
+            throw new IllegalArgumentException("Category is null");
+        }
+        if (!productDAO.findByCategory(entity).isEmpty()) {
+            throw new IllegalArgumentException("Category contains products thus can't be removed");
+        }
+
+        categoryDAO.remove(entity);
     }
 }
