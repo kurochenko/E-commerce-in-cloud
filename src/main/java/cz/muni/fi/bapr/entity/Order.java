@@ -4,12 +4,11 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
 /**
  * @author Andrej Kuročenko <andrej@kurochenko.net>
  */
-@Entity
+@Entity(name = "Orders")
 public class Order implements Serializable, IdentifiedEntity {
 
     @Id
@@ -35,8 +34,6 @@ public class Order implements Serializable, IdentifiedEntity {
     @ManyToOne
     private PaymentType paymentType;
 
-    @ManyToMany
-    private List<Product> products;
 
     @Override
     public Long getId() {
