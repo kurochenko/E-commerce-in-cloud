@@ -61,9 +61,11 @@ public class CartDAOImpl extends AbstractDAOImpl<Cart> implements CartDAO {
             query.setParameter("customer", customer);
             Object[] queryResult = (Object[]) query.getSingleResult();
             result = new CartStats();
-            result.setAmount(BigDecimal.valueOf((Long) queryResult[0]));
-            result.setPrice((BigDecimal) queryResult[1]);
-            result.setPriceVat((BigDecimal) queryResult[2]);
+            if (queryResult[0] != null && queryResult[1] != null && queryResult[2] != null) {
+                result.setAmount(BigDecimal.valueOf((Long) queryResult[0]));
+                result.setPrice((BigDecimal) queryResult[1]);
+                result.setPriceVat((BigDecimal) queryResult[2]);
+            }
         } catch (NoResultException e) {
         }
         return result;

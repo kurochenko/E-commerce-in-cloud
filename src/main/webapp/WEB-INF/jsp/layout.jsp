@@ -17,6 +17,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="${cssUrl}" type="text/css"/>
     <title>E-commerce | <spring:message code="${tilesTitle}"/></title>
+    <link rel="icon" type="image/png" href="<c:url value="/image/favicon.png" />"/>
 </head>
 
 <body>

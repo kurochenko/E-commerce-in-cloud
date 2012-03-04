@@ -44,8 +44,8 @@
                     </td>
                 </tr>
             </c:forEach>
-            <tr>
-                <td class="emphasized"><spring:message code="cart.total"/>:</td>
+            <tr class="emphasized">
+                <td><spring:message code="cart.total"/>:</td>
                 <td>&nbsp;</td>
                 <td><spring:eval expression="${cartStats.amount}"/></td>
                 <td><spring:eval expression="${cartStats.price}"/></td>
