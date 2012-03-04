@@ -42,7 +42,7 @@
                 </li>
             </sec:authorize>
         </ul>
-        <h1>E-commerce - <spring:message code="${tilesTitle}"/></h1>
+        <h1><a href="<c:url value="/" />">E-commerce</a> - <spring:message code="${tilesTitle}"/></h1>
 
 
     </div>
