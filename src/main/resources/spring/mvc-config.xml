@@ -24,6 +24,8 @@
                 <bean class="cz.muni.fi.bapr.entity.formatter.CategoryFormatter"/>
                 <bean class="cz.muni.fi.bapr.entity.formatter.VatFormatter"/>
                 <bean class="cz.muni.fi.bapr.entity.formatter.UserPrivilegeFormatter"/>
+                <bean class="cz.muni.fi.bapr.entity.formatter.DeliveryTypeFormatter"/>
+                <bean class="cz.muni.fi.bapr.entity.formatter.PaymentTypeFormatter"/>
             </set>
         </property>
     </bean>
