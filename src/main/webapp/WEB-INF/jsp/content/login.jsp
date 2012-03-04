@@ -7,17 +7,19 @@
 <c:url value="/j_spring_security_check" var="formActionUrl"/>
 
 
-<div>${SPRING_SECURITY_LAST_EXCEPTION.message}</div>
 <form id="loginForm" method="post" name="f" action="${formActionUrl}">
+    <div class="error">${SPRING_SECURITY_LAST_EXCEPTION.message}</div>
     <label for="login">
-        <spring:message code="customer.label.email"/>
+        <spring:message code="customer.label.email"/><em>*</em>:
     </label>
     <input type="text" id="login" name="j_username"/><br/>
 
     <label for="password">
-        <spring:message code="customer.label.password"/>
+        <spring:message code="customer.label.password"/><em>*</em>:
     </label>
-    <input type="password" id="password" name="j_password"/>
+    <input type="password" id="password" name="j_password"/><br/>
 
-    <input type="submit" name="submit" value="<spring:message code="button.login" />"/>
+    <div class="buttons">
+        <button type="submit"><spring:message code="button.login"/></button>
+    </div>
 </form>

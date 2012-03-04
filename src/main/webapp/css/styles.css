@@ -3,20 +3,22 @@ body {
     font-family: sans-serif;
     color: #879fb7;
     line-height: 1.5;
-    font-size: 12pt;
+    font-size: 11pt;
     margin: 0;
     padding: 0;
 }
 
-h1, h2 {
-    color: #0094d4;
+h1 {
+    color: white;
     font-size: 2em;
+    margin: 0;
+    padding: 30px 0 0 20px;
 }
 
 a {
     color: #2cafe0;
     font-weight: bold;
-    text-decoration: none;
+    /*text-decoration: none;*/
 }
 
 a:hover {
@@ -36,6 +38,11 @@ a:hover {
 }
 
 #header {
+    margin: 0;
+    padding: 0;
+    background: url("/image/header.png");
+    width: 1050px;
+    height: 100px;
 }
 
 #nav {
@@ -48,7 +55,7 @@ a:hover {
     -webkit-box-shadow: 0 0 2px 2px rgba(0, 0, 0, .05);
     -moz-box-shadow: 0 0 2px 2px rgba(0, 0, 0, .05);
     box-shadow: 0 0 2px 2px rgba(0, 0, 0, .05);
-    margin: 0 5px 0 5px;
+    margin: 5px 5px 0 5px;
 }
 
 #nav ul {
@@ -84,6 +91,7 @@ a:hover {
     color: #0094D4;
     font-size: 14px;
     font-weight: bold;
+    text-decoration: none;
 }
 
 #header ul.logreg {
@@ -94,9 +102,77 @@ a:hover {
 }
 
 #header ul.logreg li a {
-    color: #666666;
+    color: white;
     font-size: 12px;
     font-weight: bold;
+}
+
+#content-wrapper {
+    width: 1000px;
+    margin: 20px auto;
+}
+
+#content {
+    float: left;
+    width: 780px;
+    text-align: justify;
+    padding-right: 20px;
+}
+
+#side-menu {
+    float: right;
+    border: 1px solid #D7D7D7;
+    width: 198px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 0 2px 2px rgba(0, 0, 0, .05);
+    -moz-box-shadow: 0 0 2px 2px rgba(0, 0, 0, .05);
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, .05);
+}
+
+#side-menu ul {
+    list-style: none;
+    float: right;
+    width: 186px;
+    border: 1px solid white;
+    margin: 0;
+    padding: 0 0 0 10px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    background: white;
+    background: -moz-linear-gradient(top, #DDD 0%, white 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #DDD), color-stop(100%, white));
+    background: -webkit-linear-gradient(top, #DDD 0%, white 100%);
+    background: -o-linear-gradient(top, #DDD 0%, white 100%);
+    background: -ms-linear-gradient(top, #DDD 0%, white 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#dddddd', endColorstr = '#ffffff', GradientType = 0);
+    background: linear-gradient(top, #DDD 0%, white 100%);
+}
+
+#side-menu ul li {
+    padding-top: 5px;
+}
+
+#side-menu ul li a {
+    padding-top: 5px;
+    text-decoration: none;
+}
+
+#footer {
+    padding-top: 23px;
+    border-top: 1px solid #BCBCBC;
+    padding-bottom: 20px;
+    background-color: #D9D9D9;
+}
+
+#footer .text-wrapper {
+    width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    color: #8a8a8a;
+    font-size: 10pt;
 }
 
 form {
@@ -106,9 +182,8 @@ form {
 
 label {
     display: block;
-    font-weight: bold;
     color: #000;
-    margin-top: 0;
+    margin-top: 10px;
     padding: 0;
 }
 
@@ -117,6 +192,12 @@ input[type="text"], input[type="email"], input[type="password"] {
     border: 1px solid #999999;
     margin: 0;
     width: 100%;
+    height: 20px;
+}
+
+input:focus {
+    background: #e4e4e4;
+    border: 1px solid #028dcb
 }
 
 .buttons button {
@@ -137,4 +218,17 @@ input[type="text"], input[type="email"], input[type="password"] {
     border-radius: 5px;
     background: -webkit-gradient(linear, left top, left bottom, from(#EC6129), to(#C14513));
     background: -moz-linear-gradient(top, #EC6129, #C14513);
+}
+
+label em {
+    color: red;
+    margin: 0 2px 0 2px;
+}
+
+.error {
+    color: red;
+}
+
+.optional {
+    color: #91b7d3;
 }

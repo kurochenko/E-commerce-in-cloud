@@ -44,30 +44,40 @@
         <h1>E-commerce - <spring:message code="${tilesTitle}"/></h1>
 
 
-        <div id="nav">
-            <tiles:insertAttribute name="menu"/>
+    </div>
+    <div id="nav">
+        <tiles:insertAttribute name="menu"/>
+    </div>
+
+    <div id="content-wrapper">
+        <div id="content">
+            <tiles:insertAttribute name="body"/>
+        </div>
+        <div id="side-menu">
+            <sec:authorize ifAnyGranted="ROLE_ADMIN">
+                <ul>
+                    <c:url value="/admin/category/list" var="listCategoryUrl"/>
+                    <c:url value="/admin/vat/list" var="listVatUrl"/>
+                    <c:url value="/admin/product/create" var="createProductUrl"/>
+                    <li>
+                        <a href="${listCategoryUrl}"><spring:message code="link.category.list"/></a>
+                    </li>
+                    <li>
+                        <a href="${listVatUrl}"><spring:message code="link.vat.list"/></a>
+                    </li>
+                    <li>
+                        <a href="${createProductUrl}"><spring:message code="link.product.create"/></a>
+                    </li>
+                </ul>
+            </sec:authorize>
         </div>
     </div>
 
-
-    <ul>
-        <sec:authorize ifAnyGranted="ROLE_ADMIN">
-            <c:url value="/admin/category/list" var="listCategoryUrl"/>
-            <c:url value="/admin/vat/list" var="listVatUrl"/>
-            <c:url value="/admin/product/create" var="createProductUrl"/>
-            <li>
-                <a href="${listCategoryUrl}"><spring:message code="link.category.list"/></a>
-            </li>
-            <li>
-                <a href="${listVatUrl}"><spring:message code="link.vat.list"/></a>
-            </li>
-            <li>
-                <a href="${createProductUrl}"><spring:message code="link.product.create"/></a>
-            </li>
-        </sec:authorize>
-    </ul>
-
-    <tiles:insertAttribute name="body"/>
+</div>
+<div id="footer">
+    <div class="text-wrapper">
+        e-commerce in cloud
+    </div>
 </div>
 
 </body>
