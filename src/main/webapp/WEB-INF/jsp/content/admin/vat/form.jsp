@@ -19,10 +19,12 @@
     <form:hidden path="id"/>
 
     <form:label path="vat">
-        <spring:message code="vat.value"/>
+        <spring:message code="vat.value"/><em>*</em>:
+        <form:errors path="vat" cssClass="error"/>
     </form:label>
     <form:input path="vat"/>
-    <form:errors path="vat"/>
 
-    <input type="submit" value="<spring:message code="${btn}"/>"/>
+    <div class="buttons">
+        <button type="submit"><spring:message code="${btn}"/></button>
+    </div>
 </form:form> 

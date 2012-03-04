@@ -4,12 +4,16 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@page trimDirectiveWhitespaces="true" %>
 
-<p><spring:message code="product.delete.question" arguments="${product.name}"/></p><br/>
+
 <c:url value="/admin/product/delete" var="formActionUrl"/>
 <form:form method="post" action="${formActionUrl}" modelAttribute="product">
+    <p><spring:message code="product.delete.question" arguments="${product.name}"/></p>
     <form:hidden path="id"/>
-    <a href="<c:url value="/product/detail/${product.id}" />">
-        <spring:message code="btn.no"/>
-    </a>
-    <input type="submit" value="<spring:message code="btn.yes"/>"/>
+
+    <div class="buttons">
+        <a href="<c:url value="/product/detail/${product.id}" />">
+            <spring:message code="btn.no"/>
+        </a>
+        <button type="submit"><spring:message code="btn.yes"/></button>
+    </div>
 </form:form>

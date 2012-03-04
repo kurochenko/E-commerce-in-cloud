@@ -3,18 +3,18 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@page trimDirectiveWhitespaces="true" %>
 
+<c:url value="/admin/vat/create" var="createVatURL"/>
 <c:choose>
     <c:when test="${empty vats}">
-        <spring:message code="vat.msg.empty"/>. <a href="<c:url value="/admin/vat/create" />"><spring:message
+        <spring:message code="vat.msg.empty"/>. <a href="${createVatURL}"><spring:message
             code="link.vat.create"/></a>
     </c:when>
     <c:otherwise>
-        <a href="<c:url value="/admin/vat/create" />"><spring:message code="link.vat.create"/></a>
+
         <table>
             <tr>
                 <td><spring:message code="vat.value"/></td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
+                <td colspan="2"><a href="${createVatURL}"><spring:message code="link.vat.create"/></a></td>
             </tr>
             <c:forEach items="${vats}" var="vat">
                 <tr>

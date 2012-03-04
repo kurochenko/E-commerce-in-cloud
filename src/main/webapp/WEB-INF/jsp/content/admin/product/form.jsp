@@ -20,45 +20,47 @@
     <form:hidden path="id"/>
     <form:hidden path="created"/>
 
-    <form:label path="name">
-        <spring:message code="product.name"/>
-    </form:label>
-    <form:input path="name"/>
-    <form:errors path="name"/><br/>
-
-    <form:label path="description">
-        <spring:message code="product.description"/>
-    </form:label>
-    <form:textarea path="description"/>
-    <form:errors path="description"/><br/>
-
-    <form:label path="price">
-        <spring:message code="product.price"/>
-    </form:label>
-    <form:input path="price"/>
-    <form:errors path="price"/><br/>
-
-    <form:label path="amount">
-        <spring:message code="product.amount"/>
-    </form:label>
-    <form:input path="amount"/>
-    <form:errors path="amount"/><br/>
-
-    <form:label path="vat">
-        <spring:message code="product.vat"/>
-    </form:label>
-    <form:select path="vat">
-        <form:options items="${vats}" itemLabel="vat" itemValue="id"/>
-    </form:select>
-    <form:errors path="vat"/><br/>
-
     <form:label path="category">
-        <spring:message code="product.category"/>
+        <spring:message code="product.category"/><em>*</em>:
+        <form:errors path="category" cssClass="error"/>
     </form:label>
     <form:select path="category">
         <form:options items="${categories}" itemLabel="name" itemValue="id"/>
-    </form:select>
-    <form:errors path="category"/><br/>
+    </form:select><br/>
 
-    <input type="submit" value="<spring:message code="${btn}"/>"/>
+    <form:label path="name">
+        <spring:message code="product.name"/><em>*</em>:
+        <form:errors path="name" cssClass="error"/>
+    </form:label>
+    <form:input path="name"/><br/>
+
+    <form:label path="amount">
+        <spring:message code="product.amount"/><em>*</em>:
+        <form:errors path="amount" cssClass="error"/>
+    </form:label>
+    <form:input path="amount"/><br/>
+
+    <form:label path="price">
+        <spring:message code="product.price"/><em>*</em>:
+        <form:errors path="price" cssClass="error"/>
+    </form:label>
+    <form:input path="price"/><br/>
+
+    <form:label path="vat">
+        <spring:message code="product.vat"/><em>*</em>:
+        <form:errors path="vat" cssClass="error"/>
+    </form:label>
+    <form:select path="vat">
+        <form:options items="${vats}" itemLabel="vat" itemValue="id"/>
+    </form:select><br/>
+
+    <form:label path="description">
+        <spring:message code="product.description"/><em>*</em>:
+        <form:errors path="description" cssClass="error"/>
+    </form:label>
+    <form:textarea path="description"/><br/>
+
+    <div class="buttons">
+        <button type="submit"><spring:message code="${btn}"/></button>
+    </div>
 </form:form> 

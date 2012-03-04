@@ -15,17 +15,23 @@ h1 {
     padding: 30px 0 0 20px;
 }
 
+h2 {
+    color: #023753;
+    font-size: 1.5em;
+    margin: 0;
+    width: 100%;
+    border-bottom: 1px #023753 solid;
+}
+
 a {
     color: #2cafe0;
     font-weight: bold;
-    /*text-decoration: none;*/
 }
 
 a:hover {
     color: #9f7d6f;
     font-weight: bold;
     text-decoration: none;
-    text-decoration: underline;
 }
 
 #container {
@@ -94,6 +100,10 @@ a:hover {
     text-decoration: none;
 }
 
+#nav ul li a:hover {
+    text-decoration: underline;
+}
+
 #header ul.logreg {
     float: right;
     list-style: none;
@@ -117,6 +127,11 @@ a:hover {
     width: 780px;
     text-align: justify;
     padding-right: 20px;
+}
+
+#content table {
+    text-align: center;
+    margin: 0 auto
 }
 
 #side-menu {
@@ -160,6 +175,10 @@ a:hover {
     text-decoration: none;
 }
 
+#side-menu ul li a:hover {
+    text-decoration: underline;
+}
+
 #footer {
     padding-top: 23px;
     border-top: 1px solid #BCBCBC;
@@ -187,7 +206,7 @@ label {
     padding: 0;
 }
 
-input[type="text"], input[type="email"], input[type="password"] {
+input[type="text"], input[type="email"], input[type="password"], select {
     background: none repeat scroll 0 0 #FFFFFF;
     border: 1px solid #999999;
     margin: 0;
@@ -195,18 +214,32 @@ input[type="text"], input[type="email"], input[type="password"] {
     height: 20px;
 }
 
+textarea {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #999999;
+    margin: 0;
+    width: 100%;
+    height: 100px;
+}
+
 input:focus {
     background: #e4e4e4;
     border: 1px solid #028dcb
 }
 
-.buttons button {
-    /*display: inline-block;*/
-    text-align: center;
+.buttons {
     width: 100%;
+    text-align: center;
+}
+
+.buttons button, .buttons a {
+    display: inline-block;
+    text-align: center;
+    width: 45%;
     padding: 5px 0 5px;
-    margin-top: 10px;
+    margin: 10px auto;
     color: white;
+    font-weight: normal;
     border: solid 1px #813516;
     background: #EC6129;
     text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
@@ -231,4 +264,25 @@ label em {
 
 .optional {
     color: #91b7d3;
+}
+
+table.product-detail {
+    width: 100%;
+}
+
+table.product-detail th {
+    width: 50%;
+    text-align: right;
+    border-bottom: 1px solid #BCBCBC;
+    vertical-align: top;
+}
+
+table.product-detail td.edit {
+    width: 50%;
+    text-align: right;
+}
+
+table.product-detail td {
+    width: 50%;
+    text-align: left;
 }

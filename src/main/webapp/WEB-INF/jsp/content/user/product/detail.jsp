@@ -9,42 +9,49 @@
         <spring:message code="product.not.found"/>
     </c:when>
     <c:otherwise>
-        <table>
+        <a href="<c:url value="/category/${product.category.id}/list" />">
+            <spring:message code="product.detail.back.link" arguments="${product.category.name}"/>
+        </a>
+        <table class="product-detail">
             <tr>
-                <th><spring:message code="product.name"/></th>
+                <th><spring:message code="product.name"/>:</th>
                 <td>${product.name}</td>
             </tr>
             <tr>
-                <th><spring:message code="product.price.vat"/> (<spring:message code="product.vat"/>)</th>
+                <th><spring:message code="product.price.vat"/> (<spring:message code="product.vat"/>):</th>
                 <td>${vatPrice} (${product.vat.vat}&nbsp;%)</td>
             </tr>
             <tr>
-                <th><spring:message code="product.price.novat"/></th>
+                <th><spring:message code="product.price.novat"/>:</th>
                 <td>${product.price}</td>
             </tr>
             <tr>
-                <th><spring:message code="product.amount"/></th>
+                <th><spring:message code="product.amount"/>:</th>
                 <td>${product.amount}</td>
             </tr>
             <tr>
-                <th><spring:message code="product.category"/></th>
+                <th><spring:message code="product.category"/>:</th>
                 <td>${product.category.name}</td>
             </tr>
             <tr>
-                <th><spring:message code="product.description"/></th>
+                <th><spring:message code="product.description"/>:</th>
                 <td>${product.description}</td>
             </tr>
             <tr>
                 <sec:authorize ifAnyGranted="ROLE_ADMIN">
-                    <td>
-                        <a href="<c:url value="/admin/product/edit/${product.id}" />">
-                            <spring:message code="link.edit"/>
-                        </a>
+                    <td class="edit">
+                        <div class="buttons">
+                            <a href="<c:url value="/admin/product/edit/${product.id}" />">
+                                <spring:message code="link.edit"/>
+                            </a>
+                        </div>
                     </td>
                     <td>
-                        <a href="<c:url value="/admin/product/delete/${product.id}" />">
-                            <spring:message code="link.delete"/>
-                        </a>
+                        <div class="buttons">
+                            <a href="<c:url value="/admin/product/delete/${product.id}" />">
+                                <spring:message code="link.delete"/>
+                            </a>
+                        </div>
                     </td>
                 </sec:authorize>
             </tr>

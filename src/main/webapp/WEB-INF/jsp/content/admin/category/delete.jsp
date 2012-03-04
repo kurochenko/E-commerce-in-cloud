@@ -9,14 +9,19 @@
         <spring:message code="${errorMsg}" arguments="${category.name}"/>
     </c:when>
     <c:otherwise>
-        <p><spring:message code="category.delete.question" arguments="${category.name}"/></p><br/>
+
         <c:url value="/admin/category/delete" var="formActionUrl"/>
         <form:form method="post" action="${formActionUrl}" modelAttribute="category">
+            <p><spring:message code="category.delete.question" arguments="${category.name}"/></p>
             <form:hidden path="id"/>
-            <a href="<c:url value="/admin/category/list" />">
-                <spring:message code="btn.no"/>
-            </a>
-            <input type="submit" value="<spring:message code="btn.yes"/>"/>
+
+            <div class="buttons">
+                <a href="<c:url value="/admin/category/list" />">
+                    <spring:message code="btn.no"/>
+                </a>
+                <button type="submit"><spring:message code="btn.yes"/></button>
+            </div>
+
         </form:form>
     </c:otherwise>
 </c:choose>

@@ -12,17 +12,18 @@
     <c:otherwise>
         <table>
             <tr>
-                <td><spring:message code="product.name"/></td>
-                <td><spring:message code="product.price.vat"/></td>
-                <td><spring:message code="product.amount"/></td>
-                <td><spring:message code="product.description"/></td>
+                <th><spring:message code="product.name"/></th>
+                <th><spring:message code="product.price.vat"/></th>
+                <th><spring:message code="product.amount"/></th>
+                <sec:authorize ifAnyGranted="ROLE_ADMIN">
+                    <th colspan="2">&nbsp;</th>
+                </sec:authorize>
             </tr>
             <c:forEach items="${products}" var="product">
                 <tr>
-                    <td>${product.name}</td>
+                    <td><a href="<c:url value="/product/detail/${product.id}" />">${product.name}</a></td>
                     <td>${product.price}</td>
                     <td>${product.amount}</td>
-                    <td>${product.description}</td>
                     <sec:authorize ifAnyGranted="ROLE_ADMIN">
                         <td>
                             <a href="<c:url value="/admin/product/edit/${product.id}" />">

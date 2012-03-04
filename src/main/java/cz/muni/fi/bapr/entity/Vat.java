@@ -25,7 +25,7 @@ public class Vat implements Serializable, IdentifiedEntity {
     @NotNull(message = "{validation.empty}")
     @Min(value = 0, message = "{validation.min}")
     @Max(value = 100, message = "{validation.max}")
-    @NumberFormat
+    @NumberFormat(style = NumberFormat.Style.PERCENT, pattern = "## %")
     private BigDecimal vat;
 
 
