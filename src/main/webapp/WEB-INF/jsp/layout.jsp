@@ -64,6 +64,7 @@
                     <c:url value="/admin/product/create" var="createProductUrl"/>
                     <c:url value="/admin/user/list" var="listUserUrl"/>
                     <c:url value="/admin/delivery/list" var="deliveryListUrl"/>
+                    <c:url value="/admin/payment/list" var="paymentTypeListUrl"/>
                     <li>
                         <a href="${listCategoryUrl}"><spring:message code="link.category.list"/></a>
                     </li>
@@ -78,6 +79,9 @@
                     </li>
                     <li>
                         <a href="${deliveryListUrl}"><spring:message code="link.delivery.list"/></a>
+                    </li>
+                    <li>
+                        <a href="${paymentTypeListUrl}"><spring:message code="link.payment.list"/></a>
                     </li>
                 </ul>
             </sec:authorize>

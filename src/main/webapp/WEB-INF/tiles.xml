@@ -115,5 +115,21 @@
         <put-attribute name="body" value="/WEB-INF/jsp/content/admin/delivery/delete.jsp"/>
     </definition>
 
+    <!-- Payment -->
+    <definition name="payment.list" extends="base.definition">
+        <put-attribute name="title" value="payment.list.title"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/content/admin/payment/list.jsp"/>
+    </definition>
+
+    <definition name="payment.form" extends="base.definition">
+        <put-attribute name="title" value="payment.form.title"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/content/admin/payment/form.jsp"/>
+    </definition>
+
+    <definition name="payment.delete" extends="base.definition">
+        <put-attribute name="title" value="payment.delete.title"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/content/admin/payment/delete.jsp"/>
+    </definition>
+
 
 </tiles-definitions>
