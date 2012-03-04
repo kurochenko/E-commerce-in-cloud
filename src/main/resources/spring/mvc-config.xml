@@ -23,6 +23,7 @@
             <set>
                 <bean class="cz.muni.fi.bapr.entity.formatter.CategoryFormatter"/>
                 <bean class="cz.muni.fi.bapr.entity.formatter.VatFormatter"/>
+                <bean class="cz.muni.fi.bapr.entity.formatter.UserPrivilegeFormatter"/>
             </set>
         </property>
     </bean>

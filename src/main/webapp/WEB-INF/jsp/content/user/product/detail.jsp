@@ -12,7 +12,7 @@
         <a href="<c:url value="/category/${product.category.id}/list" />">
             <spring:message code="product.detail.back.link" arguments="${product.category.name}"/>
         </a>
-        <table class="product-detail">
+        <table class="detail">
             <tr>
                 <th><spring:message code="product.name"/>:</th>
                 <td>${product.name}</td>

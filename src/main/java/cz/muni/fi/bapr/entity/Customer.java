@@ -49,7 +49,7 @@ public class Customer implements Serializable, IdentifiedEntity {
     @Length(max = 255, message = "{validation.length.max}")
     private String zipCode;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     private List<UserPrivilege> privileges;
 
 

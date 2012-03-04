@@ -81,5 +81,16 @@
         <put-attribute name="body" value="/WEB-INF/jsp/content/user/product/list.jsp"/>
     </definition>
 
+    <!-- User -->
+    <definition name="admin.user.list" extends="base.definition">
+        <put-attribute name="title" value="admin.user.list.title"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/content/admin/user/list.jsp"/>
+    </definition>
+
+    <definition name="admin.user.detail" extends="base.definition">
+        <put-attribute name="title" value="admin.user.detail.title"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/content/admin/user/detail.jsp"/>
+    </definition>
+
 
 </tiles-definitions>

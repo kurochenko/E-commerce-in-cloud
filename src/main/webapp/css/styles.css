@@ -206,6 +206,19 @@ label {
     padding: 0;
 }
 
+form span {
+    display: block;
+}
+
+form span label {
+    display: inline;
+    margin: 0;
+}
+
+select[multiple="multiple"] {
+    height: auto;
+}
+
 input[type="text"], input[type="email"], input[type="password"], select {
     background: none repeat scroll 0 0 #FFFFFF;
     border: 1px solid #999999;
@@ -266,23 +279,23 @@ label em {
     color: #91b7d3;
 }
 
-table.product-detail {
+table.detail {
     width: 100%;
 }
 
-table.product-detail th {
+table.detail th {
     width: 50%;
     text-align: right;
     border-bottom: 1px solid #BCBCBC;
     vertical-align: top;
 }
 
-table.product-detail td.edit {
+table.detail td.edit {
     width: 50%;
     text-align: right;
 }
 
-table.product-detail td {
+table.detail td {
     width: 50%;
     text-align: left;
 }
