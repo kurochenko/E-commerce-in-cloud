@@ -67,4 +67,13 @@
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
 
+    <error-page>
+        <error-code>403</error-code>
+        <location>/error/403</location>
+    </error-page>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/error/404</location>
+    </error-page>
+
 </web-app>

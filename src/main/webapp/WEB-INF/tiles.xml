@@ -131,5 +131,16 @@
         <put-attribute name="body" value="/WEB-INF/jsp/content/admin/payment/delete.jsp"/>
     </definition>
 
+    <!-- error -->
+    <definition name="error.404" extends="base.definition">
+        <put-attribute name="title" value="error.404.title"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/content/error/404.jsp"/>
+    </definition>
+
+    <definition name="error.403" extends="base.definition">
+        <put-attribute name="title" value="error.403.title"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/content/error/403.jsp"/>
+    </definition>
+
 
 </tiles-definitions>

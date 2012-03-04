@@ -66,16 +66,16 @@
                     <c:url value="/admin/delivery/list" var="deliveryListUrl"/>
                     <c:url value="/admin/payment/list" var="paymentTypeListUrl"/>
                     <li>
-                        <a href="${listCategoryUrl}"><spring:message code="link.category.list"/></a>
-                    </li>
-                    <li>
-                        <a href="${listVatUrl}"><spring:message code="link.vat.list"/></a>
-                    </li>
-                    <li>
                         <a href="${createProductUrl}"><spring:message code="link.product.create"/></a>
                     </li>
                     <li>
                         <a href="${listUserUrl}"><spring:message code="link.customer.list"/></a>
+                    </li>
+                    <li>
+                        <a href="${listCategoryUrl}"><spring:message code="link.category.list"/></a>
+                    </li>
+                    <li>
+                        <a href="${listVatUrl}"><spring:message code="link.vat.list"/></a>
                     </li>
                     <li>
                         <a href="${deliveryListUrl}"><spring:message code="link.delivery.list"/></a>
