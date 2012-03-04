@@ -1,6 +1,9 @@
 package cz.muni.fi.bapr.util;
 
+import cz.muni.fi.bapr.entity.Cart;
+
 import java.math.BigDecimal;
+import java.util.List;
 
 /**
  * Utility functions
@@ -24,6 +27,22 @@ public class Utils {
             throw new IllegalArgumentException("Vat is null");
         }
         return basicPrice.add(basicPrice.multiply(vat.divide(BigDecimal.valueOf(100)))).setScale(2);
+    }
+
+    public static void computeCartStats(List<Cart> carts, BigDecimal totalAmount, BigDecimal totalPrice, BigDecimal totalPriceVat) {
+
+        totalAmount = totalPrice = totalPriceVat = BigDecimal.ZERO;
+
+        for (Cart cart : carts) {
+            totalAmount = totalAmount.add(BigDecimal.valueOf(cart.getAmount()));
+
+            BigDecimal priceBase = cart.getProduct().getPrice();
+            BigDecimal priceWithVat = Utils.getVatPrice(priceBase, cart.getProduct().getVat().getVat());
+            BigDecimal amount = BigDecimal.valueOf(cart.getAmount());
+
+            totalPrice = totalPrice.add(priceBase.multiply(amount));
+            totalPriceVat = totalPriceVat.add(priceWithVat.multiply(amount));
+        }
     }
 
 }

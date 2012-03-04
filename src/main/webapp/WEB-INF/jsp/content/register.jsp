@@ -53,6 +53,6 @@
     <form:input path="zipCode"/><br/>
 
     <div class="buttons">
-        <button type="submit"><spring:message code="form.register"/></button>
+        <button type="submit" class="full"><spring:message code="form.register"/></button>
     </div>
 </form:form>

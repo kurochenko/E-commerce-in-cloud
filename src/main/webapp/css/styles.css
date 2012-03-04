@@ -18,9 +18,16 @@ h1 {
 h2 {
     color: #023753;
     font-size: 1.5em;
-    margin: 0;
+    margin: 0 0 20px;
     width: 100%;
     border-bottom: 1px #023753 solid;
+}
+
+h3 {
+    margin: 0 0 0 5px;
+    font-size: 1em;
+    padding: 0;
+    color: #023753;
 }
 
 a {
@@ -32,6 +39,10 @@ a:hover {
     color: #9f7d6f;
     font-weight: bold;
     text-decoration: none;
+}
+
+table {
+    border-collapse: collapse;
 }
 
 #container {
@@ -151,7 +162,7 @@ a:hover {
     float: right;
     width: 186px;
     border: 1px solid white;
-    margin: 0;
+    margin: 0 0 10px;
     padding: 0 0 0 10px;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
@@ -248,7 +259,6 @@ input:focus {
 .buttons button, .buttons a {
     display: inline-block;
     text-align: center;
-    width: 45%;
     padding: 5px 0 5px;
     margin: 10px auto;
     color: white;
@@ -264,6 +274,14 @@ input:focus {
     border-radius: 5px;
     background: -webkit-gradient(linear, left top, left bottom, from(#EC6129), to(#C14513));
     background: -moz-linear-gradient(top, #EC6129, #C14513);
+}
+
+.buttons .half {
+    width: 45%;
+}
+
+.buttons .full {
+    width: 90%;
 }
 
 label em {
@@ -298,4 +316,31 @@ table.detail td.edit {
 table.detail td {
     width: 50%;
     text-align: left;
+}
+
+ul#cart li {
+    color: #023753;
+    margin: 0;
+    padding: 0;
+}
+
+table {
+    width: 100%;
+
+}
+
+table th {
+    border-bottom: 2px solid #BCBCBC;
+}
+
+table td {
+    border-bottom: 1px solid #BCBCBC;
+}
+
+table.cart-table td.btns {
+    width: 100px;
+}
+
+.emphasized {
+    font-weight: bold;
 }

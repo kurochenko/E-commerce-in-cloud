@@ -13,8 +13,8 @@
 
         <table>
             <tr>
-                <td><spring:message code="vat.value"/></td>
-                <td colspan="2"><a href="${createVatURL}"><spring:message code="link.vat.create"/></a></td>
+                <th><spring:message code="vat.value"/></th>
+                <th colspan="2"><a href="${createVatURL}"><spring:message code="link.vat.create"/></a></th>
             </tr>
             <c:forEach items="${vats}" var="vat">
                 <tr>

@@ -61,6 +61,6 @@
     <form:textarea path="description"/><br/>
 
     <div class="buttons">
-        <button type="submit"><spring:message code="${btn}"/></button>
+        <button type="submit" class="full"><spring:message code="${btn}"/></button>
     </div>
 </form:form> 

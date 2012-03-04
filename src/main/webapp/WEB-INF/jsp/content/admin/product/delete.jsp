@@ -11,9 +11,9 @@
     <form:hidden path="id"/>
 
     <div class="buttons">
-        <a href="<c:url value="/product/detail/${product.id}" />">
+        <a href="<c:url value="/product/detail/${product.id}" />" class="half">
             <spring:message code="btn.no"/>
         </a>
-        <button type="submit"><spring:message code="btn.yes"/></button>
+        <button type="submit" class="half"><spring:message code="btn.yes"/></button>
     </div>
 </form:form>

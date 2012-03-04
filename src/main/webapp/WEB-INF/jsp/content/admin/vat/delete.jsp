@@ -14,10 +14,10 @@
             <p><spring:message code="vat.delete.question" arguments="${vatObject.vat}"/></p>
             <form:hidden path="id"/>
             <div class="buttons">
-                <a href="<c:url value="/admin/vat/list" />">
+                <a href="<c:url value="/admin/vat/list" />" class="half">
                     <spring:message code="btn.no"/>
                 </a>
-                <button type="submit"><spring:message code="btn.yes"/></button>
+                <button type="submit" class="half"><spring:message code="btn.yes"/></button>
             </div>
         </form:form>
     </c:otherwise>

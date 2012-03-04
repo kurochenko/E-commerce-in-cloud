@@ -1,9 +1,11 @@
 package cz.muni.fi.bapr.entity;
 
+import org.hibernate.annotations.NaturalId;
+
 import javax.persistence.*;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  * @author Andrej Kuročenko <andrej@kurochenko.net>
@@ -15,13 +17,17 @@ public class Cart implements Serializable, IdentifiedEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @NotNull(message = "{validation.empty}")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date created;
-
-    @NotNull(message = "{validation.empty}")
+    @NaturalId
     @OneToOne
     private Customer customer;
+
+    @NaturalId
+    @ManyToOne
+    private Product product;
+
+    @NotNull(message = "{validation.empty}")
+    @Min(value = 0, message = "{validation.min}")
+    private Integer amount;
 
 
     @Override
@@ -33,20 +39,28 @@ public class Cart implements Serializable, IdentifiedEntity {
         this.id = id;
     }
 
-    public Date getCreated() {
-        return created;
-    }
-
-    public void setCreated(Date created) {
-        this.created = created;
-    }
-
     public Customer getCustomer() {
         return customer;
     }
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
+    public Integer getAmount() {
+        return amount;
+    }
+
+    public void setAmount(Integer amount) {
+        this.amount = amount;
     }
 
     @Override
@@ -56,9 +70,10 @@ public class Cart implements Serializable, IdentifiedEntity {
 
         Cart cart = (Cart) o;
 
-        if (created != null ? !created.equals(cart.created) : cart.created != null) return false;
+        if (amount != null ? !amount.equals(cart.amount) : cart.amount != null) return false;
         if (customer != null ? !customer.equals(cart.customer) : cart.customer != null) return false;
         if (id != null ? !id.equals(cart.id) : cart.id != null) return false;
+        if (product != null ? !product.equals(cart.product) : cart.product != null) return false;
 
         return true;
     }
@@ -66,8 +81,9 @@ public class Cart implements Serializable, IdentifiedEntity {
     @Override
     public int hashCode() {
         int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (created != null ? created.hashCode() : 0);
         result = 31 * result + (customer != null ? customer.hashCode() : 0);
+        result = 31 * result + (product != null ? product.hashCode() : 0);
+        result = 31 * result + (amount != null ? amount.hashCode() : 0);
         return result;
     }
 }

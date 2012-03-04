@@ -2,10 +2,13 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:security="http://www.springframework.org/schema/security"
+       xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/security
-       http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+       http://www.springframework.org/schema/security/spring-security-3.1.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop-3.1.xsd">
 
     <!-- Enables Spring Security native annotations (@PreAuthorize etc.) -->
     <security:global-method-security pre-post-annotations="enabled"/>
@@ -43,5 +46,10 @@
     </security:authentication-manager>
 
     <bean id="shaPasswordEncoder" class="org.springframework.security.authentication.encoding.ShaPasswordEncoder"/>
+
+    <bean id="loggedUser" class="cz.muni.fi.bapr.security.SecurityUserHolder" factory-method="getSecurityUser"
+          scope="request">
+        <aop:scoped-proxy/>
+    </bean>
 
 </beans>

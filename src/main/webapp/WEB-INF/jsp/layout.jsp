@@ -54,7 +54,9 @@
             <tiles:insertAttribute name="body"/>
         </div>
         <div id="side-menu">
+            <tiles:insertAttribute name="cart"/>
             <sec:authorize ifAnyGranted="ROLE_ADMIN">
+                <h3><spring:message code="admin.menu.title"/>:</h3>
                 <ul>
                     <c:url value="/admin/category/list" var="listCategoryUrl"/>
                     <c:url value="/admin/vat/list" var="listVatUrl"/>

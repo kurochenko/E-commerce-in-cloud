@@ -2,6 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@page trimDirectiveWhitespaces="true" %>
 
 <c:choose>
@@ -38,17 +39,25 @@
                 <td>${product.description}</td>
             </tr>
             <tr>
+                <th><spring:message code="product.cart.add"/>:</th>
+                <td>
+                    <a href="<c:url value="/product/add/${product.id}" />">
+                        <spring:message code="link.add"/>
+                    </a>
+                </td>
+            </tr>
+            <tr>
                 <sec:authorize ifAnyGranted="ROLE_ADMIN">
                     <td class="edit">
                         <div class="buttons">
-                            <a href="<c:url value="/admin/product/edit/${product.id}" />">
+                            <a href="<c:url value="/admin/product/edit/${product.id}" />" class="half">
                                 <spring:message code="link.edit"/>
                             </a>
                         </div>
                     </td>
                     <td>
                         <div class="buttons">
-                            <a href="<c:url value="/admin/product/delete/${product.id}" />">
+                            <a href="<c:url value="/admin/product/delete/${product.id}" />" class="half">
                                 <spring:message code="link.delete"/>
                             </a>
                         </div>

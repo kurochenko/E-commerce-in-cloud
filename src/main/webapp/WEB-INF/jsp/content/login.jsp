@@ -20,6 +20,6 @@
     <input type="password" id="password" name="j_password"/><br/>
 
     <div class="buttons">
-        <button type="submit"><spring:message code="button.login"/></button>
+        <button type="submit" class="full"><spring:message code="button.login"/></button>
     </div>
 </form>

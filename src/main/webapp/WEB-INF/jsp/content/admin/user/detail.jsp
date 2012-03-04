@@ -52,7 +52,7 @@
             <br/>
 
             <div class="buttons">
-                <button type="submit"><spring:message code="btn.update"/></button>
+                <button type="submit" class="full"><spring:message code="btn.update"/></button>
             </div>
 
         </form:form>

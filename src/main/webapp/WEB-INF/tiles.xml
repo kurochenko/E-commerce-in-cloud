@@ -7,6 +7,7 @@
     <definition name="base.definition" template="/WEB-INF/jsp/layout.jsp" preparer="menuPreparer">
         <put-attribute name="title" value=""/>
         <put-attribute name="menu" value="/WEB-INF/jsp/menu.jsp"/>
+        <put-attribute name="cart" value="/WEB-INF/jsp/cart.jsp"/>
         <put-attribute name="body" value=""/>
     </definition>
 
@@ -90,6 +91,12 @@
     <definition name="admin.user.detail" extends="base.definition">
         <put-attribute name="title" value="admin.user.detail.title"/>
         <put-attribute name="body" value="/WEB-INF/jsp/content/admin/user/detail.jsp"/>
+    </definition>
+
+    <!-- Cart -->
+    <definition name="cart.list" extends="base.definition">
+        <put-attribute name="title" value="cart.list.title"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/content/user/cart/list.jsp"/>
     </definition>
 
 
