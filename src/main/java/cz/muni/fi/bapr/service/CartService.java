@@ -3,7 +3,7 @@ package cz.muni.fi.bapr.service;
 import cz.muni.fi.bapr.entity.Cart;
 import cz.muni.fi.bapr.entity.Customer;
 import cz.muni.fi.bapr.entity.Product;
-import cz.muni.fi.bapr.util.CartStats;
+import cz.muni.fi.bapr.util.OrderStats;
 
 import java.util.List;
 
@@ -18,6 +18,6 @@ public interface CartService extends ServiceTemplate<Cart> {
 
     Cart matchCustomerProduct(Customer customer, Product product);
 
-    CartStats sumStats(Customer customer);
+    OrderStats sumStats(Customer customer);
 
 }

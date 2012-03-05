@@ -1,11 +1,15 @@
 package cz.muni.fi.bapr.service.impl;
 
 import cz.muni.fi.bapr.dao.OrderProductDAO;
+import cz.muni.fi.bapr.entity.Order;
 import cz.muni.fi.bapr.entity.OrderProduct;
 import cz.muni.fi.bapr.service.OrderProductService;
+import cz.muni.fi.bapr.util.OrderStats;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 /**
  * Implementation of {@code OrderProductService} service interface
@@ -23,5 +27,23 @@ public class OrderProductServiceImpl extends AbstractServiceImpl<OrderProduct, O
     @Override
     public OrderProductDAO getDao() {
         return orderProductDAO;
+    }
+
+    @Override
+    public List<OrderProduct> findByOrder(Order order) {
+        if (order == null) {
+            throw new IllegalArgumentException("Order is null");
+        }
+
+        return orderProductDAO.findByOrder(order);
+    }
+
+    @Override
+    public OrderStats sumStats(Order order) {
+        if (order == null) {
+            throw new IllegalArgumentException("Order is null");
+        }
+
+        return orderProductDAO.sumStats(order);
     }
 }

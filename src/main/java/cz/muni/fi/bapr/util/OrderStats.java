@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 /**
  * @author Andrej Kuročenko <andrej@kurochenko.net>
  */
-public class CartStats {
+public class OrderStats {
 
     @NumberFormat(style = NumberFormat.Style.NUMBER)
     private BigDecimal amount = BigDecimal.ZERO;
@@ -47,11 +47,11 @@ public class CartStats {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        CartStats cartStats = (CartStats) o;
+        OrderStats orderStats = (OrderStats) o;
 
-        if (amount != null ? !amount.equals(cartStats.amount) : cartStats.amount != null) return false;
-        if (price != null ? !price.equals(cartStats.price) : cartStats.price != null) return false;
-        if (priceVat != null ? !priceVat.equals(cartStats.priceVat) : cartStats.priceVat != null) return false;
+        if (amount != null ? !amount.equals(orderStats.amount) : orderStats.amount != null) return false;
+        if (price != null ? !price.equals(orderStats.price) : orderStats.price != null) return false;
+        if (priceVat != null ? !priceVat.equals(orderStats.priceVat) : orderStats.priceVat != null) return false;
 
         return true;
     }

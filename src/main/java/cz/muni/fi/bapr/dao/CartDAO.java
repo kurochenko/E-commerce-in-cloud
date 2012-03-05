@@ -3,7 +3,7 @@ package cz.muni.fi.bapr.dao;
 import cz.muni.fi.bapr.entity.Cart;
 import cz.muni.fi.bapr.entity.Customer;
 import cz.muni.fi.bapr.entity.Product;
-import cz.muni.fi.bapr.util.CartStats;
+import cz.muni.fi.bapr.util.OrderStats;
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ import java.util.List;
  */
 public interface CartDAO extends DAOTemplate<Cart> {
 
-    public CartStats sumStats(Customer customer);
+    public OrderStats sumStats(Customer customer);
 
     List<Cart> findByCustomer(Customer customer);
 

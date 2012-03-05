@@ -99,6 +99,11 @@
         <put-attribute name="body" value="/WEB-INF/jsp/content/user/cart/list.jsp"/>
     </definition>
 
+    <definition name="cart.success" extends="base.definition">
+        <put-attribute name="title" value="cart.success.title"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/content/user/cart/success.jsp"/>
+    </definition>
+
     <!-- Delivery -->
     <definition name="delivery.list" extends="base.definition">
         <put-attribute name="title" value="delivery.list.title"/>
@@ -140,6 +145,17 @@
     <definition name="error.403" extends="base.definition">
         <put-attribute name="title" value="error.403.title"/>
         <put-attribute name="body" value="/WEB-INF/jsp/content/error/403.jsp"/>
+    </definition>
+
+    <!-- Order -->
+    <definition name="order.list" extends="base.definition">
+        <put-attribute name="title" value="order.list.title"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/content/user/order/list.jsp"/>
+    </definition>
+
+    <definition name="order.detail" extends="base.definition">
+        <put-attribute name="title" value="order.detail.title"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/content/user/order/detail.jsp"/>
     </definition>
 
 

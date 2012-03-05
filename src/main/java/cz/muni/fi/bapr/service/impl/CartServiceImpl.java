@@ -5,7 +5,7 @@ import cz.muni.fi.bapr.entity.Cart;
 import cz.muni.fi.bapr.entity.Customer;
 import cz.muni.fi.bapr.entity.Product;
 import cz.muni.fi.bapr.service.CartService;
-import cz.muni.fi.bapr.util.CartStats;
+import cz.muni.fi.bapr.util.OrderStats;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -51,7 +51,7 @@ public class CartServiceImpl extends AbstractServiceImpl<Cart, CartDAO> implemen
     }
 
     @Override
-    public CartStats sumStats(Customer customer) {
+    public OrderStats sumStats(Customer customer) {
         return cartDAO.sumStats(customer);
     }
 }

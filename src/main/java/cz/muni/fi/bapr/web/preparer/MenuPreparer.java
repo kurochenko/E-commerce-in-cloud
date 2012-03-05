@@ -5,7 +5,7 @@ import cz.muni.fi.bapr.security.User;
 import cz.muni.fi.bapr.service.CartService;
 import cz.muni.fi.bapr.service.CategoryService;
 import cz.muni.fi.bapr.service.CustomerService;
-import cz.muni.fi.bapr.util.CartStats;
+import cz.muni.fi.bapr.util.OrderStats;
 import org.apache.tiles.AttributeContext;
 import org.apache.tiles.context.TilesRequestContext;
 import org.apache.tiles.preparer.ViewPreparer;
@@ -37,14 +37,14 @@ public class MenuPreparer implements ViewPreparer {
     @Override
     public void execute(TilesRequestContext tilesRequestContext, AttributeContext attributeContext) {
 
-        CartStats cartStats = new CartStats();
+        OrderStats orderStats = new OrderStats();
 
         if (user.getId() != null) {
             Customer customer = customerService.find(user.getId());
-            cartStats = cartService.sumStats(customer);
+            orderStats = cartService.sumStats(customer);
         }
 
-        tilesRequestContext.getRequestScope().put(MODEL_CART_STATS, cartStats);
+        tilesRequestContext.getRequestScope().put(MODEL_CART_STATS, orderStats);
         tilesRequestContext.getRequestScope().put(MENU_CATEGORIES, categoryService.findAll());
     }
 }

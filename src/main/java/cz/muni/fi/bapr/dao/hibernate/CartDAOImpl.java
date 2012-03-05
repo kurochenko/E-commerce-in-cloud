@@ -4,7 +4,7 @@ import cz.muni.fi.bapr.dao.CartDAO;
 import cz.muni.fi.bapr.entity.Cart;
 import cz.muni.fi.bapr.entity.Customer;
 import cz.muni.fi.bapr.entity.Product;
-import cz.muni.fi.bapr.util.CartStats;
+import cz.muni.fi.bapr.util.OrderStats;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -53,14 +53,14 @@ public class CartDAOImpl extends AbstractDAOImpl<Cart> implements CartDAO {
     }
 
     @Override
-    public CartStats sumStats(Customer customer) {
-        CartStats result = null;
+    public OrderStats sumStats(Customer customer) {
+        OrderStats result = null;
 
         try {
             Query query = getEntityManager().createQuery("select sum(c.amount), sum(c.amount * c.product.price), sum(c.amount * (c.product.price + (c.product.price * (c.product.vat.vat / 100)))) from Cart c where c.customer = :customer");
             query.setParameter("customer", customer);
             Object[] queryResult = (Object[]) query.getSingleResult();
-            result = new CartStats();
+            result = new OrderStats();
             if (queryResult[0] != null && queryResult[1] != null && queryResult[2] != null) {
                 result.setAmount(BigDecimal.valueOf((Long) queryResult[0]));
                 result.setPrice((BigDecimal) queryResult[1]);

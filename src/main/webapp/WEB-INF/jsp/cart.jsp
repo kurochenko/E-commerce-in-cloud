@@ -9,5 +9,8 @@
     <li><spring:message code="product.price"/>: <spring:eval expression="${cartStats.price}"/></li>
     <li><spring:message code="product.price.vat"/>: <spring:eval expression="${cartStats.priceVat}"/></li>
     <li><a href="<c:url value="/cart/list" />"><spring:message code="cart.show"/></a></li>
+    <sec:authorize ifAnyGranted="ROLE_LOGGED">
+        <li><a href="<c:url value="/order/list" />"><spring:message code="order.list.link"/></a></li>
+    </sec:authorize>
 </ul>
 

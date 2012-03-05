@@ -2,6 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@page trimDirectiveWhitespaces="true" %>
 
 <c:choose>
@@ -51,14 +52,28 @@
                 <td><spring:eval expression="${cartStats.price}"/></td>
                 <td>&nbsp;</td>
                 <td><spring:eval expression="${cartStats.priceVat}"/></td>
-                <td>
-                    <div class="buttons">
-                        <a href="<c:url value="/cart/order" />" class="full">
-                            <spring:message code="cart.order"/>
-                        </a>
-                    </div>
-                </td>
+                <td>&nbsp;</td>
             </tr>
         </table>
+        <c:url value="/cart/order" var="saveOrderUrl"/>
+        <form:form method="post" action="${saveOrderUrl}" modelAttribute="order">
+            <form:label path="deliveryType">
+                <spring:message code="delivery.name"/><em>*</em>:
+                <form:errors path="deliveryType" cssClass="error"/>
+            </form:label>
+            <form:select path="deliveryType" items="${deliveryTypes}" itemLabel="name" itemValue="id"/>
+
+            <form:label path="paymentType">
+                <spring:message code="payment.name"/><em>*</em>:
+                <form:errors path="paymentType" cssClass="error"/>
+            </form:label>
+            <form:select path="paymentType" items="${paymentTypes}" itemLabel="name" itemValue="id"/>
+
+            <div class="buttons">
+                <button type="submit" class="full">
+                    <spring:message code="cart.order.create"/>
+                </button>
+            </div>
+        </form:form>
     </c:otherwise>
 </c:choose>
