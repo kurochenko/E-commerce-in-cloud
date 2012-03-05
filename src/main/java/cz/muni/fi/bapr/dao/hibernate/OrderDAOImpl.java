@@ -68,4 +68,28 @@ public class OrderDAOImpl extends AbstractDAOImpl<Order> implements OrderDAO {
         }
         return result;
     }
+
+    @Override
+    public List<Order> findNotAttended() {
+        List<Order> result = new ArrayList<Order>();
+
+        try {
+            Query query = getEntityManager().createQuery("from Orders o where o.attended = null");
+            result = query.getResultList();
+        } catch (NoResultException e) {
+        }
+        return result;
+    }
+
+    @Override
+    public List<Order> findAttended() {
+        List<Order> result = new ArrayList<Order>();
+
+        try {
+            Query query = getEntityManager().createQuery("from Orders o where o.attended != null");
+            result = query.getResultList();
+        } catch (NoResultException e) {
+        }
+        return result;
+    }
 }

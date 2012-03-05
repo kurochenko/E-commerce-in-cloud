@@ -22,4 +22,8 @@ public interface OrderDAO extends DAOTemplate<Order> {
 
     List<Order> findAttendedByCustomer(Customer customer);
 
+    List<Order> findNotAttended();
+
+    List<Order> findAttended();
+
 }

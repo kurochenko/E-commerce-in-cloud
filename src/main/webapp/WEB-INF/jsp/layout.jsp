@@ -59,12 +59,20 @@
             <sec:authorize ifAnyGranted="ROLE_ADMIN">
                 <h3><spring:message code="admin.menu.title"/>:</h3>
                 <ul>
+                    <c:url value="/admin/order/old" var="oldOrdersUrl"/>
+                    <c:url value="/admin/order/new" var="newOrdersUrl"/>
                     <c:url value="/admin/category/list" var="listCategoryUrl"/>
                     <c:url value="/admin/vat/list" var="listVatUrl"/>
                     <c:url value="/admin/product/create" var="createProductUrl"/>
                     <c:url value="/admin/user/list" var="listUserUrl"/>
                     <c:url value="/admin/delivery/list" var="deliveryListUrl"/>
                     <c:url value="/admin/payment/list" var="paymentTypeListUrl"/>
+                    <li>
+                        <a href="${newOrdersUrl}"><spring:message code="order.new.link"/></a>
+                    </li>
+                    <li>
+                        <a href="${oldOrdersUrl}"><spring:message code="order.old.link"/></a>
+                    </li>
                     <li>
                         <a href="${createProductUrl}"><spring:message code="link.product.create"/></a>
                     </li>

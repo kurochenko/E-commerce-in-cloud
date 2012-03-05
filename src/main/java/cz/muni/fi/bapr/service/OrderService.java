@@ -29,4 +29,8 @@ public interface OrderService extends ServiceTemplate<Order> {
 
     List<Order> findAttendedByCustomer(Customer customer);
 
+    List<Order> findNotAttended();
+
+    List<Order> findAttended();
+
 }

@@ -88,4 +88,14 @@ public class OrderServiceImpl extends AbstractServiceImpl<Order, OrderDAO> imple
 
         return orderDAO.findAttendedByCustomer(customer);
     }
+
+    @Override
+    public List<Order> findNotAttended() {
+        return orderDAO.findNotAttended();
+    }
+
+    @Override
+    public List<Order> findAttended() {
+        return orderDAO.findAttended();
+    }
 }

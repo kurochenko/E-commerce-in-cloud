@@ -2,6 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <%@page trimDirectiveWhitespaces="true" %>
 
 <h2>#${order.id}, ${order.created}</h2>
@@ -31,12 +32,39 @@
                     expression="${product.product.price}+(${product.product.price}*(${product.product.vat.vat}/100))"/></td>
         </tr>
     </c:forEach>
+    <tr>
+        <th colspan="6">&nbsp;</th>
+    </tr>
+    <tr>
+        <td><spring:message code="delivery.name"/></td>
+        <td>${order.deliveryType.name}</td>
+        <td>&nbsp;</td>
+        <td><spring:eval expression="${order.deliveryType.price}"/></td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <th colspan="6">&nbsp;</th>
+    </tr>
     <tr class="emphasized">
         <td><spring:message code="cart.total"/>:</td>
         <td>&nbsp;</td>
         <td><spring:eval expression="${stats.amount}"/></td>
-        <td><spring:eval expression="${stats.price}"/></td>
+        <td><spring:eval expression="${stats.price} + ${order.deliveryType.price}"/></td>
         <td>&nbsp;</td>
-        <td><spring:eval expression="${stats.priceVat}"/></td>
+        <td><spring:eval expression="${stats.priceVat} + ${order.deliveryType.price}"/></td>
     </tr>
+    <sec:authorize ifAnyGranted="ROLE_ADMIN">
+        <c:if test="${empty order.attended}">
+            <tr>
+                <td colspan="6">
+                    <div class="buttons">
+                        <a href="<c:url value="/admin/order/attend/${order.id}" />" class="half">
+                            <spring:message code="order.attend"/>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        </c:if>
+    </sec:authorize>
 </table>

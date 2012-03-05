@@ -158,5 +158,15 @@
         <put-attribute name="body" value="/WEB-INF/jsp/content/user/order/detail.jsp"/>
     </definition>
 
+    <definition name="order.admin.new" extends="base.definition">
+        <put-attribute name="title" value="order.new.title"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/content/admin/order/new.jsp"/>
+    </definition>
+
+    <definition name="order.admin.old" extends="base.definition">
+        <put-attribute name="title" value="order.old.title"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/content/admin/order/old.jsp"/>
+    </definition>
+
 
 </tiles-definitions>
