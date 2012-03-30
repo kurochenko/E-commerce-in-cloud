@@ -9,7 +9,7 @@
     <tiles:insertAttribute name="title" ignore="true"/>
 </c:set>
 
-<c:url value="/css/styles.css" var="cssUrl"/>
+<c:url value="/static/css/styles.css" var="cssUrl"/>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -17,7 +17,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="${cssUrl}" type="text/css"/>
     <title>E-commerce | <spring:message code="${tilesTitle}"/></title>
-    <link rel="icon" type="image/png" href="<c:url value="/image/favicon.png" />"/>
+    <link rel="icon" type="image/png" href="<c:url value="/static/image/favicon.png" />"/>
 </head>
 
 <body>

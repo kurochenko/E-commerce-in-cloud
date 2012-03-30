@@ -37,16 +37,29 @@
         <dispatcher>ERROR</dispatcher>
     </filter-mapping>
 
+
+    <servlet>
+        <servlet-name>default</servlet-name>
+        <servlet-class>org.apache.catalina.servlets.DefaultServlet</servlet-class>
+        <init-param>
+            <param-name>debug</param-name>
+            <param-value>0</param-value>
+        </init-param>
+        <init-param>
+            <param-name>listings</param-name>
+            <param-value>false</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>/static/*</url-pattern>
+    </servlet-mapping>
+
     <servlet>
         <servlet-name>dispatcher</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-        <init-param>
-            <param-name>contextConfigLocation</param-name>
-            <param-value>
-                classpath:/spring/application-config.xml
-            </param-value>
-        </init-param>
-        <load-on-startup>0</load-on-startup>
+        <load-on-startup>2</load-on-startup>
     </servlet>
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
@@ -56,7 +69,12 @@
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>
+            classpath:/spring/datasource-config.xml
+            classpath:/spring/persistence-config.xml
             classpath:/spring/application-config.xml
+            classpath:/spring/security-config.xml
+            classpath:/spring/tiles-config.xml
+            classpath:/spring/mvc-config.xml
         </param-value>
     </context-param>
 
