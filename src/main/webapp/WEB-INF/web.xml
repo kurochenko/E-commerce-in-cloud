@@ -39,7 +39,7 @@
 
 
     <servlet>
-        <servlet-name>default</servlet-name>
+        <servlet-name>staticServlet</servlet-name>
         <servlet-class>org.apache.catalina.servlets.DefaultServlet</servlet-class>
         <init-param>
             <param-name>debug</param-name>
@@ -52,7 +52,7 @@
         <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>
-        <servlet-name>default</servlet-name>
+        <servlet-name>staticServlet</servlet-name>
         <url-pattern>/static/*</url-pattern>
     </servlet-mapping>
 
