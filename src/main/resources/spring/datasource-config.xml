@@ -10,4 +10,21 @@
         <property name="password" value="sa"/>
     </bean>
 
+    <beans profile="cloud">
+        <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+            <property name="driverClassName" value="org.postgresql.Driver"/>
+            <property name="url" value="jdbc:postgresql://localhost:5432/bapr"/>
+            <property name="username" value="sa"/>
+            <property name="password" value="sa"/>
+        </bean>
+    </beans>
+
+    <beans profile="test">
+        <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+            <property name="driverClassName" value="org.hsqldb.jdbcDriver"/>
+            <property name="url" value="jdbc:hsqldb:target/blog"/>
+            <property name="username" value="sa"/>
+            <property name="password" value=""/>
+        </bean>
+    </beans>
 </beans>
