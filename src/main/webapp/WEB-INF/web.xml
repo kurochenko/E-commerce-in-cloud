@@ -69,7 +69,6 @@
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>
-            classpath:/spring/datasource-config.xml
             classpath:/spring/persistence-config.xml
             classpath:/spring/application-config.xml
             classpath:/spring/security-config.xml
