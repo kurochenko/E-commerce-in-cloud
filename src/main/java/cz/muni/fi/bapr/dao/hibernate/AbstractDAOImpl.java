@@ -28,6 +28,9 @@ public abstract class AbstractDAOImpl<T> implements DAOTemplate<T> {
      * @param entityClass class type of generic T
      */
     public AbstractDAOImpl(Class<T> entityClass) {
+        if (entityClass == null) {
+            throw new IllegalArgumentException("Entity class is null");
+        }
         this.entityClass = entityClass;
     }
 
@@ -49,29 +52,48 @@ public abstract class AbstractDAOImpl<T> implements DAOTemplate<T> {
 
     @Override
     public void create(T entity) {
+        if (entity == null) {
+            throw new IllegalArgumentException("Entity is null");
+        }
         getEntityManager().persist(entity);
     }
 
     @Override
     public void edit(T entity) {
+        if (entity == null) {
+            throw new IllegalArgumentException("Entity is null");
+        }
         getEntityManager().merge(entity);
     }
 
     @Override
     public void remove(T entity) {
+        if (entity == null) {
+            throw new IllegalArgumentException("Entity is null");
+        }
         getEntityManager().remove(getEntityManager().merge(entity));
     }
 
     @Override
     public T find(Long id) {
+        if (id == null) {
+            throw new IllegalArgumentException("ID is null");
+        }
         return getEntityManager().find(entityClass, id);
     }
 
     @Override
     public List<T> findRange(int from, int howMany) {
+        if (from < 0) {
+            throw new IllegalArgumentException("[From] range has negative value");
+        }
+        if (howMany <= 0) {
+            throw new IllegalArgumentException("Count of returned objects has to be >= 1");
+        }
+
         CriteriaQuery cq = getEntityManager().getCriteriaBuilder().createQuery();
         cq.select(cq.from(entityClass));
-        javax.persistence.Query q = getEntityManager().createQuery(cq);
+        Query q = getEntityManager().createQuery(cq);
         q.setMaxResults(howMany);
         q.setFirstResult(from);
         return q.getResultList();
