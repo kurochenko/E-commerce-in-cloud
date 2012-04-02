@@ -118,7 +118,7 @@ public abstract class AbstractDAO<T> implements DAOTemplate<T> {
      * @param searchValue   value to search in {@code parameterName} entity parameter
      * @return {@code T} entity if search matched, {@code null} otherwise
      */
-    protected T findByParam(String parameterName, Object searchValue) {
+    public T findByParam(String parameterName, Object searchValue) {
         if (parameterName == null) {
             throw new IllegalArgumentException("Parameter name is null");
         }
@@ -144,7 +144,7 @@ public abstract class AbstractDAO<T> implements DAOTemplate<T> {
      * @param searchValue   value to search in {@code parameterName} entity parameter
      * @return {@code List&lt;T&gt;} entity if search matched, empty list otherwise
      */
-    protected List<T> findListByParam(String parameterName, Object searchValue) {
+    public List<T> findListByParam(String parameterName, Object searchValue) {
         if (parameterName == null) {
             throw new IllegalArgumentException("Parameter name is null");
         }
