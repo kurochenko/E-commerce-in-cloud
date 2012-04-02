@@ -14,7 +14,7 @@ import java.util.List;
  *
  * @author Andrej Kuročenko <andrej@kurochenko.net>
  */
-public abstract class AbstractDAOImpl<T> implements DAOTemplate<T> {
+public abstract class AbstractDAO<T> implements DAOTemplate<T> {
 
     /**
      * Class type of entity stored as generic
@@ -27,7 +27,7 @@ public abstract class AbstractDAOImpl<T> implements DAOTemplate<T> {
      *
      * @param entityClass class type of generic T
      */
-    public AbstractDAOImpl(Class<T> entityClass) {
+    public AbstractDAO(Class<T> entityClass) {
         if (entityClass == null) {
             throw new IllegalArgumentException("Entity class is null");
         }

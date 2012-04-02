@@ -18,7 +18,7 @@ import java.util.List;
  * @author Andrej Kuročenko <andrej@kurochenko.net>
  */
 @Repository
-public class OrderProductDAOImpl extends AbstractDAOImpl<OrderProduct> implements OrderProductDAO {
+public class OrderProductDAOImpl extends AbstractDAO<OrderProduct> implements OrderProductDAO {
 
     @PersistenceContext
     private EntityManager entityManager;

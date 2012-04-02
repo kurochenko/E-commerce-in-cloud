@@ -18,7 +18,7 @@ import java.util.List;
  * @author Andrej Kuročenko <andrej@kurochenko.net>
  */
 @Repository
-public class CartDAOImpl extends AbstractDAOImpl<Cart> implements CartDAO {
+public class CartDAOImpl extends AbstractDAO<Cart> implements CartDAO {
 
     @PersistenceContext
     private EntityManager entityManager;

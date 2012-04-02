@@ -11,7 +11,7 @@ import javax.persistence.PersistenceContext;
  * @author Andrej Kuročenko <andrej@kurochenko.net>
  */
 @Repository
-public class PaymentTypeDAOImpl extends AbstractDAOImpl<PaymentType> implements PaymentTypeDAO {
+public class PaymentTypeDAOImpl extends AbstractDAO<PaymentType> implements PaymentTypeDAO {
 
     @PersistenceContext
     private EntityManager entityManager;
