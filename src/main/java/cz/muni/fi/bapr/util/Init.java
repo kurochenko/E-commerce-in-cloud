@@ -4,7 +4,6 @@ import cz.muni.fi.bapr.entity.UserPrivilege;
 import cz.muni.fi.bapr.security.UserRoles;
 import cz.muni.fi.bapr.service.UserPrivilegeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 
@@ -13,7 +12,6 @@ import javax.annotation.PostConstruct;
  *
  * @author Andrej Kuročenko <andrej@kurochenko.net>
  */
-@Component
 public class Init {
 
     @Autowired
