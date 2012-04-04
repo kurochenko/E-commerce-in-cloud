@@ -44,11 +44,9 @@ public class Product implements Serializable, IdentifiedEntity {
     @Min(value = 0, message = "{validation.min}")
     private Integer amount;
 
-    @NotNull(message = "{validation.empty}")
     @ManyToOne
     private Vat vat;
 
-    @NotNull(message = "{validation.empty}")
     @ManyToOne
     private Category category;
 
