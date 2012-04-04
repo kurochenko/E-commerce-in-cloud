@@ -1,5 +1,7 @@
-package cz.muni.fi.bapr.util;
+package cz.muni.fi.bapr.test.util;
 
+import cz.muni.fi.bapr.util.Utils;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.math.BigDecimal;
@@ -15,7 +17,7 @@ public class UtilsTest {
     public void testVatPrice() {
         BigDecimal base = BigDecimal.valueOf(100);
         BigDecimal vat = BigDecimal.valueOf(19);
-        assertEquals(BigDecimal.valueOf(119).setScale(2), Utils.getVatPrice(base, vat));
+        Assert.assertEquals(BigDecimal.valueOf(119).setScale(2), Utils.getVatPrice(base, vat));
 
         base = BigDecimal.valueOf(100);
         vat = BigDecimal.valueOf(0);
