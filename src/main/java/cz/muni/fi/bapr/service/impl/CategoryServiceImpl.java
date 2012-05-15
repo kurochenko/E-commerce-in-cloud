@@ -17,12 +17,20 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class CategoryServiceImpl extends AbstractServiceImpl<Category, CategoryDAO> implements CategoryService {
 
-    @Autowired
     private CategoryDAO categoryDAO;
 
-    @Autowired
     private ProductDAO productDAO;
 
+
+    @Autowired
+    public void setCategoryDAO(CategoryDAO categoryDAO) {
+        this.categoryDAO = categoryDAO;
+    }
+
+    @Autowired
+    public void setProductDAO(ProductDAO productDAO) {
+        this.productDAO = productDAO;
+    }
 
     @Override
     public CategoryDAO getDao() {

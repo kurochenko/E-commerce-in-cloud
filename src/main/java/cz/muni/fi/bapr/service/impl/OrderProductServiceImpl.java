@@ -20,9 +20,13 @@ import java.util.List;
 @Transactional
 public class OrderProductServiceImpl extends AbstractServiceImpl<OrderProduct, OrderProductDAO> implements OrderProductService {
 
-    @Autowired
     private OrderProductDAO orderProductDAO;
 
+
+    @Autowired
+    public void setOrderProductDAO(OrderProductDAO orderProductDAO) {
+        this.orderProductDAO = orderProductDAO;
+    }
 
     @Override
     public OrderProductDAO getDao() {

@@ -17,12 +17,20 @@ import java.math.BigDecimal;
 @Transactional
 public class VatServiceImpl extends AbstractServiceImpl<Vat, VatDAO> implements VatService {
 
-    @Autowired
     private VatDAO vatDAO;
 
-    @Autowired
     private ProductDAO productDAO;
 
+
+    @Autowired
+    public void setVatDAO(VatDAO vatDAO) {
+        this.vatDAO = vatDAO;
+    }
+
+    @Autowired
+    public void setProductDAO(ProductDAO productDAO) {
+        this.productDAO = productDAO;
+    }
 
     @Override
     public VatDAO getDao() {

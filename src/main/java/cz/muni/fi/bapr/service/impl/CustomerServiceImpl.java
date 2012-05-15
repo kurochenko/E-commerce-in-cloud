@@ -16,8 +16,12 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class CustomerServiceImpl extends AbstractServiceImpl<Customer, CustomerDAO> implements CustomerService {
 
-    @Autowired
     private CustomerDAO customerDAO;
+
+    @Autowired
+    public void setCustomerDAO(CustomerDAO customerDAO) {
+        this.customerDAO = customerDAO;
+    }
 
     @Override
     public CustomerDAO getDao() {

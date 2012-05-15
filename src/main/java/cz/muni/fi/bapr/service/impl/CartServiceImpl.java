@@ -20,9 +20,12 @@ import java.util.List;
 @Service
 public class CartServiceImpl extends AbstractServiceImpl<Cart, CartDAO> implements CartService {
 
-    @Autowired
     private CartDAO cartDAO;
 
+    @Autowired
+    public void setCartDAO(CartDAO cartDAO) {
+        this.cartDAO = cartDAO;
+    }
 
     @Override
     public CartDAO getDao() {
@@ -54,6 +57,9 @@ public class CartServiceImpl extends AbstractServiceImpl<Cart, CartDAO> implemen
     @Override
     @Transactional(readOnly = true)
     public OrderStats sumStats(Customer customer) {
+        if (customer == null) {
+            throw new IllegalArgumentException("Customer is null");
+        }
         return cartDAO.sumStats(customer);
     }
 }

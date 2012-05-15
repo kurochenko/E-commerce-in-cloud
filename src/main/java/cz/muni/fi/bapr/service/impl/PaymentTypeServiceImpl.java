@@ -16,9 +16,13 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class PaymentTypeServiceImpl extends AbstractServiceImpl<PaymentType, PaymentTypeDAO> implements PaymentTypeService {
 
-    @Autowired
     private PaymentTypeDAO paymentTypeDAO;
 
+
+    @Autowired
+    public void setPaymentTypeDAO(PaymentTypeDAO paymentTypeDAO) {
+        this.paymentTypeDAO = paymentTypeDAO;
+    }
 
     @Override
     public PaymentTypeDAO getDao() {

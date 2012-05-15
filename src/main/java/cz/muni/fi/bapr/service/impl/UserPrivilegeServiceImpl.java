@@ -16,9 +16,13 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class UserPrivilegeServiceImpl extends AbstractServiceImpl<UserPrivilege, UserPrivilegeDAO> implements UserPrivilegeService {
 
-    @Autowired
     private UserPrivilegeDAO userPrivilegeDAO;
 
+
+    @Autowired
+    public void setUserPrivilegeDAO(UserPrivilegeDAO userPrivilegeDAO) {
+        this.userPrivilegeDAO = userPrivilegeDAO;
+    }
 
     @Override
     public UserPrivilegeDAO getDao() {

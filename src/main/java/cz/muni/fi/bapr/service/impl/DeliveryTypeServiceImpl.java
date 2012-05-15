@@ -16,9 +16,12 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class DeliveryTypeServiceImpl extends AbstractServiceImpl<DeliveryType, DeliveryTypeDAO> implements DeliveryTypeService {
 
-    @Autowired
     private DeliveryTypeDAO deliveryTypeDAO;
 
+    @Autowired
+    public void setDeliveryTypeDAO(DeliveryTypeDAO deliveryTypeDAO) {
+        this.deliveryTypeDAO = deliveryTypeDAO;
+    }
 
     @Override
     public DeliveryTypeDAO getDao() {

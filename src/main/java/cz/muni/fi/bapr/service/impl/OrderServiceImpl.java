@@ -20,15 +20,27 @@ import java.util.List;
 @Transactional
 public class OrderServiceImpl extends AbstractServiceImpl<Order, OrderDAO> implements OrderService {
 
-    @Autowired
     private OrderDAO orderDAO;
 
-    @Autowired
     private CartDAO cartDAO;
 
-    @Autowired
     private OrderProductDAO orderProductDAO;
 
+
+    @Autowired
+    public void setOrderDAO(OrderDAO orderDAO) {
+        this.orderDAO = orderDAO;
+    }
+
+    @Autowired
+    public void setCartDAO(CartDAO cartDAO) {
+        this.cartDAO = cartDAO;
+    }
+
+    @Autowired
+    public void setOrderProductDAO(OrderProductDAO orderProductDAO) {
+        this.orderProductDAO = orderProductDAO;
+    }
 
     @Override
     public OrderDAO getDao() {
