@@ -59,6 +59,7 @@ public class DeliveryTypeServiceImpl extends AbstractServiceImpl<DeliveryType, D
     }
 
     @Override
+    @Transactional(readOnly = true)
     public DeliveryType findByName(String name) {
         if (name == null) {
             throw new IllegalArgumentException("Delivery type name is null");

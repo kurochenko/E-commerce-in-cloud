@@ -59,6 +59,7 @@ public class PaymentTypeServiceImpl extends AbstractServiceImpl<PaymentType, Pay
     }
 
     @Override
+    @Transactional(readOnly = true)
     public PaymentType findByName(String name) {
         if (name == null) {
             throw new IllegalArgumentException("Payment type name is null");

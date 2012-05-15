@@ -59,6 +59,7 @@ public class UserPrivilegeServiceImpl extends AbstractServiceImpl<UserPrivilege,
     }
 
     @Override
+    @Transactional(readOnly = true)
     public UserPrivilege findByName(String name) {
         if (name == null) {
             throw new IllegalArgumentException("User privilege name is null");

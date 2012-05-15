@@ -18,7 +18,6 @@ import java.util.List;
  * @author Andrej Kuročenko <andrej@kurochenko.net>
  */
 @Service
-@Transactional
 public class CartServiceImpl extends AbstractServiceImpl<Cart, CartDAO> implements CartService {
 
     @Autowired
@@ -31,6 +30,7 @@ public class CartServiceImpl extends AbstractServiceImpl<Cart, CartDAO> implemen
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Cart> findByCustomer(Customer customer) {
         if (customer == null) {
             throw new IllegalArgumentException("Customer is null");
@@ -39,6 +39,7 @@ public class CartServiceImpl extends AbstractServiceImpl<Cart, CartDAO> implemen
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Cart matchCustomerProduct(Customer customer, Product product) {
         if (customer == null) {
             throw new IllegalArgumentException("Customer is null");
@@ -51,6 +52,7 @@ public class CartServiceImpl extends AbstractServiceImpl<Cart, CartDAO> implemen
     }
 
     @Override
+    @Transactional(readOnly = true)
     public OrderStats sumStats(Customer customer) {
         return cartDAO.sumStats(customer);
     }

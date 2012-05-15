@@ -54,6 +54,7 @@ public class OrderServiceImpl extends AbstractServiceImpl<Order, OrderDAO> imple
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Order> findByDeliveryType(DeliveryType deliveryType) {
         if (deliveryType == null) {
             throw new IllegalArgumentException("Delivery type is null");
@@ -63,6 +64,7 @@ public class OrderServiceImpl extends AbstractServiceImpl<Order, OrderDAO> imple
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Order> findByPaymentType(PaymentType paymentType) {
         if (paymentType == null) {
             throw new IllegalArgumentException("Payment type is null");
@@ -72,6 +74,7 @@ public class OrderServiceImpl extends AbstractServiceImpl<Order, OrderDAO> imple
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Order> findNotAttendedByCustomer(Customer customer) {
         if (customer == null) {
             throw new IllegalArgumentException("Customer is null");
@@ -81,6 +84,7 @@ public class OrderServiceImpl extends AbstractServiceImpl<Order, OrderDAO> imple
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Order> findAttendedByCustomer(Customer customer) {
         if (customer == null) {
             throw new IllegalArgumentException("Customer is null");
@@ -90,11 +94,13 @@ public class OrderServiceImpl extends AbstractServiceImpl<Order, OrderDAO> imple
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Order> findNotAttended() {
         return orderDAO.findNotAttended();
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Order> findAttended() {
         return orderDAO.findAttended();
     }

@@ -34,6 +34,7 @@ public class ProductServiceImpl extends AbstractServiceImpl<Product, ProductDAO>
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Product> findByCategory(Category category) {
         if (category == null) {
             throw new IllegalArgumentException("Category is null");
@@ -43,6 +44,7 @@ public class ProductServiceImpl extends AbstractServiceImpl<Product, ProductDAO>
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Product> findByVat(Vat vat) {
         if (vat == null) {
             throw new IllegalArgumentException("Vat is null");

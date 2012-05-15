@@ -30,6 +30,7 @@ public class OrderProductServiceImpl extends AbstractServiceImpl<OrderProduct, O
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<OrderProduct> findByOrder(Order order) {
         if (order == null) {
             throw new IllegalArgumentException("Order is null");
@@ -39,6 +40,7 @@ public class OrderProductServiceImpl extends AbstractServiceImpl<OrderProduct, O
     }
 
     @Override
+    @Transactional(readOnly = true)
     public OrderStats sumStats(Order order) {
         if (order == null) {
             throw new IllegalArgumentException("Order is null");

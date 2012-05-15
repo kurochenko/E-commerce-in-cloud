@@ -58,6 +58,7 @@ public class CustomerServiceImpl extends AbstractServiceImpl<Customer, CustomerD
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Customer findByEmail(String email) {
         if (email == null) {
             throw new IllegalArgumentException("Email is null");

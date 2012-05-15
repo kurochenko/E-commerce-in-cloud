@@ -30,6 +30,7 @@ public class CategoryServiceImpl extends AbstractServiceImpl<Category, CategoryD
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Category findByName(String name) {
         if (name == null) {
             throw new IllegalArgumentException("Category name is null");

@@ -63,6 +63,7 @@ public class VatServiceImpl extends AbstractServiceImpl<Vat, VatDAO> implements 
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Vat findByVat(BigDecimal vat) {
         if (vat == null) {
             throw new IllegalArgumentException("Vat value is null");
