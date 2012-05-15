@@ -12,7 +12,17 @@ import java.util.List;
  * @author Andrej Kuročenko <andrej@kurochenko.net>
  */
 public interface OrderProductService extends ServiceTemplate<OrderProduct> {
+    /**
+     * Searches for link object {@code OrderProduct} by order
+     * @param order
+     * @return
+     */
     List<OrderProduct> findByOrder(Order order);
 
+    /**
+     * Counts stats for given order
+     * @param order
+     * @return
+     */
     OrderStats sumStats(Order order);
 }

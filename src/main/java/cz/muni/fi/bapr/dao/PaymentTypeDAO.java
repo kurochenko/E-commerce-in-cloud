@@ -16,5 +16,4 @@ public interface PaymentTypeDAO extends DAOTemplate<PaymentType> {
      * @return {@code PaymentType} or {@code null} when no payment type was found with specified name
      */
     PaymentType findByName(String name);
-
 }

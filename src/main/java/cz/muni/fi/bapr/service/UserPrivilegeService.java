@@ -9,6 +9,10 @@ import cz.muni.fi.bapr.entity.UserPrivilege;
  */
 public interface UserPrivilegeService extends ServiceTemplate<UserPrivilege> {
 
+    /**
+     * Searches for user privilege identified by name
+     * @param name
+     * @return
+     */
     UserPrivilege findByName(String name);
-
 }

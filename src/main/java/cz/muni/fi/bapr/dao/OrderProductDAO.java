@@ -14,10 +14,24 @@ import java.util.List;
  */
 public interface OrderProductDAO extends DAOTemplate<OrderProduct> {
 
+    /**
+     * Searches for link object {@code OrderProduct} by product
+     * @param product
+     * @return
+     */
     List<OrderProduct> findByProduct(Product product);
 
+    /**
+     * Searches for link object {@code OrderProduct} by order
+     * @param order
+     * @return
+     */
     List<OrderProduct> findByOrder(Order order);
 
+    /**
+     * Counts stats for given order
+     * @param order
+     * @return
+     */
     OrderStats sumStats(Order order);
-
 }

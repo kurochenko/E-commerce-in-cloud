@@ -13,8 +13,17 @@ import java.util.List;
  */
 public interface ProductDAO extends DAOTemplate<Product> {
 
+    /**
+     * Searches for products by category
+     * @param category
+     * @return
+     */
     List<Product> findByCategory(Category category);
 
+    /**
+     * Searches for products by vat
+     * @param vat
+     * @return
+     */
     List<Product> findByVat(Vat vat);
-
 }

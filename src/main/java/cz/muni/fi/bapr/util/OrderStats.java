@@ -5,6 +5,8 @@ import org.springframework.format.annotation.NumberFormat;
 import java.math.BigDecimal;
 
 /**
+ * Serves for retrieval of statistics about order from database
+ *
  * @author Andrej Kuročenko <andrej@kurochenko.net>
  */
 public class OrderStats {
@@ -17,6 +19,7 @@ public class OrderStats {
 
     @NumberFormat(style = NumberFormat.Style.CURRENCY)
     private BigDecimal priceVat = BigDecimal.ZERO;
+
 
     public BigDecimal getAmount() {
         return amount;

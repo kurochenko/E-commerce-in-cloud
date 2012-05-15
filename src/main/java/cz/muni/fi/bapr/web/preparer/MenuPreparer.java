@@ -13,6 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
+ * Prepares menu for rendering for Apache Tiles
+ *
  * @author Andrej Kuročenko <andrej@kurochenko.net>
  */
 @Component("menuPreparer")

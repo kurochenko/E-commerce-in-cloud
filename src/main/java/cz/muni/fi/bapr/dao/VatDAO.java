@@ -9,6 +9,10 @@ import java.math.BigDecimal;
  */
 public interface VatDAO extends DAOTemplate<Vat> {
 
+    /**
+     * Searches for vat by its value
+     * @param vat
+     * @return
+     */
     Vat findByVat(BigDecimal vat);
-
 }

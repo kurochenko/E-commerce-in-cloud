@@ -13,8 +13,17 @@ import java.util.List;
  */
 public interface ProductService extends ServiceTemplate<Product> {
 
+    /**
+     * Searches for products by category
+     * @param category
+     * @return
+     */
     List<Product> findByCategory(Category category);
 
+    /**
+     * Searches for products by vat
+     * @param vat
+     * @return
+     */
     List<Product> findByVat(Vat vat);
-
 }

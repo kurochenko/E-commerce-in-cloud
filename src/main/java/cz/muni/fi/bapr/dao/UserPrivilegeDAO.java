@@ -9,6 +9,10 @@ import cz.muni.fi.bapr.entity.UserPrivilege;
  */
 public interface UserPrivilegeDAO extends DAOTemplate<UserPrivilege> {
 
+    /**
+     * Searches for user privilege identified by name
+     * @param name
+     * @return
+     */
     UserPrivilege findByName(String name);
-
 }
