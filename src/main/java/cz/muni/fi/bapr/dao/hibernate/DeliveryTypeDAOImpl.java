@@ -17,10 +17,6 @@ public class DeliveryTypeDAOImpl extends AbstractDAO<DeliveryType> implements De
     private EntityManager entityManager;
 
 
-    public DeliveryTypeDAOImpl() {
-        super(DeliveryType.class);
-    }
-
     @Override
     protected EntityManager getEntityManager() {
         return entityManager;

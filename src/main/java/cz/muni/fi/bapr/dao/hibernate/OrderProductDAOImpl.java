@@ -24,10 +24,6 @@ public class OrderProductDAOImpl extends AbstractDAO<OrderProduct> implements Or
     private EntityManager entityManager;
 
 
-    public OrderProductDAOImpl() {
-        super(OrderProduct.class);
-    }
-
     @Override
     protected EntityManager getEntityManager() {
         return entityManager;

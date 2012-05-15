@@ -17,10 +17,6 @@ public class UserPrivilegeDAOImpl extends AbstractDAO<UserPrivilege> implements 
     private EntityManager entityManager;
 
 
-    public UserPrivilegeDAOImpl() {
-        super(UserPrivilege.class);
-    }
-
     @Override
     protected EntityManager getEntityManager() {
         return entityManager;

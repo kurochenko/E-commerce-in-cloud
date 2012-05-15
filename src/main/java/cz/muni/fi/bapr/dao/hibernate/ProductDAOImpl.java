@@ -20,10 +20,6 @@ public class ProductDAOImpl extends AbstractDAO<Product> implements ProductDAO {
     private EntityManager entityManager;
 
 
-    public ProductDAOImpl() {
-        super(Product.class);
-    }
-
     @Override
     protected EntityManager getEntityManager() {
         return entityManager;

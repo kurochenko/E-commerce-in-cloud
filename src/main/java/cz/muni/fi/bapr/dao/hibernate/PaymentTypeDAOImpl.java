@@ -17,10 +17,6 @@ public class PaymentTypeDAOImpl extends AbstractDAO<PaymentType> implements Paym
     private EntityManager entityManager;
 
 
-    public PaymentTypeDAOImpl() {
-        super(PaymentType.class);
-    }
-
     @Override
     protected EntityManager getEntityManager() {
         return entityManager;

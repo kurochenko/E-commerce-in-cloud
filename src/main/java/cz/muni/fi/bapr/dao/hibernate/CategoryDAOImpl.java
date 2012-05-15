@@ -16,11 +16,6 @@ public class CategoryDAOImpl extends AbstractDAO<Category> implements CategoryDA
     @PersistenceContext
     private EntityManager entityManager;
 
-
-    public CategoryDAOImpl() {
-        super(Category.class);
-    }
-
     @Override
     protected EntityManager getEntityManager() {
         return entityManager;

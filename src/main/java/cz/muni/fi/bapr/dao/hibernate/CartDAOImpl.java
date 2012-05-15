@@ -23,11 +23,6 @@ public class CartDAOImpl extends AbstractDAO<Cart> implements CartDAO {
     @PersistenceContext
     private EntityManager entityManager;
 
-
-    public CartDAOImpl() {
-        super(Cart.class);
-    }
-
     @Override
     protected EntityManager getEntityManager() {
         return entityManager;

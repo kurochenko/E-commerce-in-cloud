@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaQuery;
+import java.lang.reflect.ParameterizedType;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,14 +25,9 @@ public abstract class AbstractDAO<T> implements DAOTemplate<T> {
 
     /**
      * Constructor which sets Class type of generic T
-     *
-     * @param entityClass class type of generic T
      */
-    public AbstractDAO(Class<T> entityClass) {
-        if (entityClass == null) {
-            throw new IllegalArgumentException("Entity class is null");
-        }
-        this.entityClass = entityClass;
+    public AbstractDAO() {
+        this.entityClass = (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
     }
 
     /**

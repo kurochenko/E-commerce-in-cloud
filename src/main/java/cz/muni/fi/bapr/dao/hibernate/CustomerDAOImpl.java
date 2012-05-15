@@ -17,10 +17,6 @@ public class CustomerDAOImpl extends AbstractDAO<Customer> implements CustomerDA
     private EntityManager entityManager;
 
 
-    public CustomerDAOImpl() {
-        super(Customer.class);
-    }
-
     @Override
     protected EntityManager getEntityManager() {
         return entityManager;

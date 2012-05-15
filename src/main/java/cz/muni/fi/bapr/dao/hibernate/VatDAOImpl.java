@@ -18,10 +18,6 @@ public class VatDAOImpl extends AbstractDAO<Vat> implements VatDAO {
     private EntityManager entityManager;
 
 
-    public VatDAOImpl() {
-        super(Vat.class);
-    }
-
     @Override
     protected EntityManager getEntityManager() {
         return entityManager;
